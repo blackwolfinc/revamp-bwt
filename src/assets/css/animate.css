@@ -76,7 +76,7 @@
   .animation-backgroundtwo {
     position: fixed !important;
     bottom: 0px;
-    height: 50% !important;
+    height: 80% !important;
     width: auto !important;
     min-width: -webkit-max-content !important;
     min-width: -moz-max-content !important;
@@ -86,7 +86,7 @@
   .animation-backgroundone {
     position: fixed !important;
     bottom: 0px;
-    height: 50% !important;
+    height: 80% !important;
     width: auto !important;
     min-width: -webkit-max-content !important;
     min-width: -moz-max-content !important;

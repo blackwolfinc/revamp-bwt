@@ -31,9 +31,11 @@ body {
 .background-main {
   background: url("../../public/assets/background.webp");
   background-size: cover;
-  background-position: center;
+  background-position: center ;
+
   background-repeat: no-repeat;
-  opacity: 1
+  opacity: 1;
+  filter: brightness(0.7) ;
 }
 
 .background-second
@@ -43,8 +45,22 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.3;
+  filter: blur(1px) ;
   animation: blink 4s infinite;
   transition: opacity 2s ease;
+}
+
+
+.background-third
+{
+  background: url("../../public/assets/background3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  filter: blur(1px) ;
+  animation: blink 8s infinite;
+  transition: opacity 9s ease;
 }
 
 .dropLogo {
