@@ -1,0 +1,95 @@
+.animation-background {
+    -webkit-animation: myAnim 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+      forwards;
+            animation: myAnim 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+      forwards;
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    /* margin-left: -10rem !important; */
+  }
+  
+  .animation-background2 {
+    margin-left: -4rem !important;
+    -webkit-animation: myAnim2 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+      forwards;
+            animation: myAnim2 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+      forwards;
+  }
+  
+  @-webkit-keyframes myAnim {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateX(-50px);
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  @keyframes myAnim {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateX(-50px);
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  @-webkit-keyframes myAnim2 {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateX(50px);
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  @keyframes myAnim2 {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateX(50px);
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  .animation-backgroundtwo {
+    position: fixed !important;
+    bottom: 0px;
+    height: 50% !important;
+    width: auto !important;
+    min-width: -webkit-max-content !important;
+    min-width: -moz-max-content !important;
+    min-width: max-content !important;
+  }
+  
+  .animation-backgroundone {
+    position: fixed !important;
+    bottom: 0px;
+    height: 50% !important;
+    width: auto !important;
+    min-width: -webkit-max-content !important;
+    min-width: -moz-max-content !important;
+    min-width: max-content !important;
+  }
+  
