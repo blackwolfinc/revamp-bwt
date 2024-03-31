@@ -137,7 +137,7 @@ export default function Home() {
               height={350}
               width={450}
               src={Claw}
-              className="mt-[-3rem] opacity-45 shad"
+              className="mt-[-3rem] hidden lg:flex opacity-45 "
             />
           </div>
           <Image
