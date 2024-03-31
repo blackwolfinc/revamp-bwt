@@ -1,95 +1,251 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Kanit, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes AnimationTop {
+  0% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(0);
+    /* border-bottom: 8px solid rgb(241, 178, 84);
+    border-right: 8px solid rgb(241, 178, 84); */
+  }
+  80% {
+    opacity: 1;
+    border: 0px solid rgb(30, 30, 30);
+  }
+  100% {
+    transform: translateX(-50vw);
+    opacity: 0;
+    border-bottom: 20px solid rgb(30, 30, 30);
+    border-right: 20px solid rgb(30, 30, 30);
+  }
+}
+
+@keyframes AnimationBottom {
+  0% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(0);
+    /* border-top: 8px solid rgb(241, 178, 84);
+    border-left: 8px solid rgb(241, 178, 84); */
+  }
+  80% {
+    opacity: 1;
+    border: 0px solid rgb(30, 30, 30);
+  }
+  100% {
+    transform: translateX(50vw);
+    opacity: 0;
+    border-top: 20px solid rgb(30, 30, 30);
+    border-left: 20px solid rgb(30, 30, 30);
+  }
+}
+
+@keyframes AnimationCenter {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scale(10) rotate(45deg);
+  }
+  60% {
+    transform: translateX(0) scale(0.5) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animationOpenTop {
+  background-color: #1f1f1f;
+  background: url("../../../public/assets/offline.webp");
+  background-size: cover;
+  background-position: left;
+  filter: brightness(0.6)  grayscale(0.4);
+  animation: AnimationTop 4s cubic-bezier(0.37, 0, 0.63, 1) 0s normal;
+}
+
+.animationOpenBottom {
+  background: url("../../../public/assets/offline.webp");
+  background-size: cover;
+  background-color: #1f1f1f;
+  filter: brightness(0.6)  grayscale(0.4);
+  background-position: right;
+
+  animation: AnimationBottom 4s cubic-bezier(0.37, 0, 0.63, 1) 0s normal;
+}
+
+.animateOpenCenter {
+  /* border: 8px solid rgb(241, 178, 84); */
+  color: rgb(241, 178, 84);
+  font-weight: 700;
+  font-size: 60px;
+  background: url("../../../public/assets/img/claw.png") no-repeat;
+  /* background-color: #1f1f1f; */
+  scale: 0.8;
+  animation: AnimationCenter 4s cubic-bezier(0.37, 0, 0.63, 1) 0s normal;
+}
+
 .animation-background {
-    -webkit-animation: myAnim 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
-      forwards;
-            animation: myAnim 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
-      forwards;
-    width: -webkit-fit-content !important;
-    width: -moz-fit-content !important;
-    width: fit-content !important;
-    /* margin-left: -10rem !important; */
+  animation: myAnim 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+    forwards;
+  width: fit-content !important;
+  /* margin-left: -10rem !important; */
+}
+.animation-background2 {
+  margin-left: -4rem !important;
+  animation: myAnim2 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+    forwards;
+}
+
+.animation-background3 {
+  margin-left: -4rem !important;
+  animation: myAnim2 20s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
+    forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    transform: translateX(0);
   }
-  
-  .animation-background2 {
-    margin-left: -4rem !important;
-    -webkit-animation: myAnim2 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
-      forwards;
-            animation: myAnim2 8s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal
-      forwards;
+  50% {
+    transform: translateX(-50px);
   }
-  
-  @-webkit-keyframes myAnim {
-    0% {
-      transform: translateX(0);
-    }
-  
-    50% {
-      transform: translateX(-50px);
-    }
-  
-    100% {
-      transform: translateX(0px);
-    }
+  100% {
+    transform: translateX(0px);
   }
-  
-  @keyframes myAnim {
-    0% {
-      transform: translateX(0);
-    }
-  
-    50% {
-      transform: translateX(-50px);
-    }
-  
-    100% {
-      transform: translateX(0px);
-    }
+}
+
+@keyframes myAnim2 {
+  0% {
+    transform: translateX(0);
   }
-  
-  @-webkit-keyframes myAnim2 {
-    0% {
-      transform: translateX(0);
-    }
-  
-    50% {
-      transform: translateX(50px);
-    }
-  
-    100% {
-      transform: translateX(0px);
-    }
+  50% {
+    transform: translateX(50px);
   }
-  
-  @keyframes myAnim2 {
-    0% {
-      transform: translateX(0);
-    }
-  
-    50% {
-      transform: translateX(50px);
-    }
-  
-    100% {
-      transform: translateX(0px);
-    }
+  100% {
+    transform: translateX(0px);
   }
-  
-  .animation-backgroundtwo {
-    position: fixed !important;
-    bottom: 0px;
-    height: 80% !important;
-    width: auto !important;
-    min-width: -webkit-max-content !important;
-    min-width: -moz-max-content !important;
-    min-width: max-content !important;
+}
+
+.animation-backgroundtwo {
+  position: fixed !important;
+  bottom: 0px;
+  height: 70% !important;
+  width: 100vw !important;
+  min-width: max-content !important;
+}
+
+.animation-backgroundone {
+  position: fixed !important;
+  bottom: 0px;
+  height: 100% !important;
+  min-width: -webkit-max-content !important;
+  min-width: -moz-max-content !important;
+  min-width: 140vw !important;
+}
+.neonText {
+  color: #fff;
+  text-shadow: 0 0 7px #0f0d0d, -1px 1px 10px #fff, 0 0 21px #181818,
+    0 0 42px #1f1f1f, 0 0 82px #151515, 0 0 92px #a1a1a1, 0 0 102px #080808,
+    0 0 151px #d7a85f;
+}
+
+.dropClaw {
+  filter: drop-shadow(2px 4px 6px #424141a9) brightness(75%) blur(12px)
+    opacity(0.8);
+}
+
+.dropLogo {
+  filter: drop-shadow(2px 4px 6px #424141a9) brightness(75%) blur(0px) invert(0);
+}
+
+
+.dropLogoCollection {
+  filter: drop-shadow(8px 3px 6px #cdcdcd79);
+}
+
+.img30 img {
+  max-height: 5rem;
+  min-height: 5rem;
+  min-width: fit-content;
+}
+
+
+.buttonAtas {
+  position: relative;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.buttonAtas:hover {
+  transform: scale(1.1);
+  transition: 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.buttonAtas:hover:after {
+  content: "";
+  width: 291px;
+  height: 300px;
+  transform: scale(0.4);
+  background: url("../../../public/assets/img/claw.png") no-repeat;
+  top: -8rem;
+  left: 6rem;
+  filter: opacity(0.7);
+  position: absolute;
+  display: inline-block;
+}
+
+.bgOur {
+  background: rgba(0, 0, 0, 0.329);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.75;
+}
+
+.teamwolf {
+  background: url("../../../public/assets/img/teamwolf.jpg") no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  /* filter: grayscale(1); */
+}
+
+.teamwolf2 {
+  background: url("../../../public/assets/img/wolflamp.jpg") no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  opacity: 0.8;
+  filter: grayscale(1);
+}
+
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
   }
-  
-  .animation-backgroundone {
-    position: fixed !important;
-    bottom: 0px;
-    height: 80% !important;
-    width: auto !important;
-    min-width: -webkit-max-content !important;
-    min-width: -moz-max-content !important;
-    min-width: max-content !important;
-  }
-  
+}
+.animate-spin-default {
+  animation: spin 3s linear infinite;
+}
