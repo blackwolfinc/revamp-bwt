@@ -54,7 +54,7 @@ export default function Home() {
           stiffness: 200,
           damping: 20,
         }}
-        className="absolute right-0 z-30 top-[30%] bg-slate-500 shadow-xl rounded-l-lg w-[3rem] flex justify-center items-center h-[10rem]"
+        className="absolute   lg:right-0 z-30  lg:top-[30%] bottom-[12%] bg-slate-500 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
       >
         {/* Content of your component */}
         <IoMdSettings className="animate-spin-default" />
@@ -68,8 +68,6 @@ export default function Home() {
           OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
         } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
       >
-        {/* Content of your component */}
-        <div className="w-full h-full  z-50 flex justify-center items-center "></div>
       </motion.div>
 
       <motion.div
@@ -130,7 +128,7 @@ export default function Home() {
       </motion.div>
 
       <div className="flex flex-col w-full h-full  relative  justify-center  items-center  scale-75">
-        <div className="mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
+        <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
           <div className=" absolute right-0 top-0 opacity-70">
             <Image
               alt=""

@@ -12,17 +12,16 @@ export const BackgroundAnimate = (props :any) => {
     <div className='fixed z-[10] w-full bottom-0'>
       {
         Animate ? <>
-          <Image alt="" className='opacity-10 z-[0] animation-backgroundone top-[-20rem] !left-[-20rem] animation-background3 invert' src={Cloud} />
-          <Image alt="" className='opacity-10 z-[0] animation-backgroundone  !left-[-20rem]  ' src={Forest2} />
+          <Image alt="" className='opacity-10 z-[0] animation-backgroundone top-[-20rem] lg:!left-[-20rem] animation-background3 invert' src={Cloud} />
+          <Image alt="" className='opacity-10 z-[0] animation-backgroundone  lg:!left-[-20rem]  ' src={Forest2} />
           <Image alt="" className='opacity-10 z-[0] animation-backgroundtwo  animation-background2 ' src={Forest} />
           <Image alt="" className='opacity-10 z-[-1] animation-background ' src={Forest} /> </> : 
            <>
-           <Image alt="" className='opacity-10 z-[0] animation-backgroundone  top-[-20rem] !left-[-20rem] animation-background3' src={Cloud} />
-           <Image alt="" className='opacity-10 z-[0] animation-backgroundone  !left-[-20rem]  ' src={Forest2} />
+           <Image alt="" className='opacity-10 z-[0] animation-backgroundone  top-[-20rem] lg:!left-[-20rem] animation-background3' src={Cloud} />
+           <Image alt="" className='opacity-10 z-[0] animation-backgroundone  lg:!left-[-20rem]  ' src={Forest2} />
            <Image alt="" className='opacity-10 z-[0] animation-backgroundtwo  animation-background2' src={Forest} />
            <Image alt="" className='opacity-10 z-[-1] animation-background  ' src={Forest} /> </> 
       }
-
     </div>
   )
 }
