@@ -5,6 +5,7 @@ import claw from '../../public/assets/img/claw.png'
 import "./globals.css";
 import "../assets/css/animate.css";
 import React from 'react'; // Import React from 'react'
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 const baseURL = "https://www.blackwolftech.id/";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }:any) {
         <link rel='alternate' type='application/rss+xml' title='RSS' href={`${baseURL}rss`} />
         <link rel='alternate' type='application/atom+xml' title='Atom 0.3' href={`${baseURL}feed.atom`} />
       </Head>
+      <Analytics/>
       <body className={inter.className}>{children}</body>
     </html>
   );
