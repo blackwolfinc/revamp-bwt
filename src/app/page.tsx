@@ -12,10 +12,13 @@ import AutoPlay from "@/components/Slider/AutoPlay";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const [Page, setPage] = useState("home");
 
   const variants = {
     visible: {
@@ -40,9 +43,9 @@ export default function Home() {
   return (
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
-      <div className="background-main w-screen h-screen absolute z-20 "></div>
-      <div className="background-second w-screen h-screen absolute z-20 "></div>
-      <div className="background-third w-screen h-screen absolute z-20 "></div>
+      <div className={`background-main w-screen h-screen absolute z-20 ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""}`}></div>
+      <div className={`background-second w-screen h-screen absolute z-20  ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""}`}></div>
+      <div className={`background-third w-screen h-screen absolute z-20  ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""}`}></div>
       <BackgroundAnimate Animate={OpenSetting} />
       {/* Audio component */}
       {isPlaying && (
@@ -51,10 +54,13 @@ export default function Home() {
           Your browser does not support the audio tag.
         </audio>
       )}
-      <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60vh] lg:bottom-[5vh] ">
-        <AutoPlay />
-      </div>
+      {Page == "home" && (
+        <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60vh] lg:bottom-[5vh] ">
+          <AutoPlay />
+        </div>
+      )}
 
+      {/* button */}
       <motion.div
         onClick={() => {
           setOpenSetting(!OpenSetting);
@@ -77,30 +83,33 @@ export default function Home() {
         <IoMdSettings className="animate-spin-default" />
       </motion.div>
 
+      {/* background */}
       <motion.div
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={` bg-gradient-to-r from-[#ffffff] via-[#fbfbfb] to-[#000000] ${
-          OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
-        } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
+        className={` bg-gradient-to-r from-[#828282] via-[#fbfbfb] to-[#000000] ${OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
+          } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
       ></motion.div>
 
+      {/* menu */}
       <motion.div
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={` ${
-          OpenSetting
-            ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
-            : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
-        } h-screen absolute flex justify-center items-center left-0  `}
+        className={` ${OpenSetting
+          ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
+          : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
+          } h-screen absolute flex justify-center items-center left-0  `}
       >
         {/* Content of your component */}
+
         <div className="w-full h-full    z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
+
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
+              setPage("home")
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -110,6 +119,7 @@ export default function Home() {
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
+              setPage("home")
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -119,6 +129,7 @@ export default function Home() {
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
+              setPage("about")
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -128,6 +139,7 @@ export default function Home() {
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
+              setPage("home")
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -137,6 +149,7 @@ export default function Home() {
             onClick={() => {
               setIsPlaying(false);
               setOpenSetting(!OpenSetting);
+              setPage("home")
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -146,6 +159,7 @@ export default function Home() {
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
+              setPage("home")
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -154,12 +168,12 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <div className="flex flex-col w-full h-full  relative  justify-center  items-center   scale-75">
+      {/* logo */}
+      {Page == "home" && <div className="flex flex-col w-full h-full  relative  justify-center  items-center   scale-75">
         <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
           <div
-            className={` absolute right-0 top-0 ${
-              OpenSetting ? "opacity-100" : "opacity-70"
-            }`}
+            className={` absolute right-0 top-0 ${OpenSetting ? "opacity-100" : "opacity-70"
+              }`}
           >
             <Image
               alt=""
@@ -177,7 +191,40 @@ export default function Home() {
             className={`z-20  ${OpenSetting ? "invert hidden lg:flex" : ""} `}
           />
         </div>
-      </div>
+      </div>}
+
+      {!OpenSetting && <div className="h-screen flex justify-center relative items-center  lg:z-10">
+        <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-5/6 p-8 rounded-lg top-10vh absolute overflow-y-auto text-white">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4">Black Wolf Tech Indonesia</h1>
+          <p className="mb-4">
+            Welcome to Black Wolf Tech Indonesia, your trusted ally in navigating the digital landscape. As a leading force in technology solutions, we specialize in providing tailored answers to your unique challenges, ensuring you stay at the forefront of innovation.
+          </p>
+
+          <h2 className="text-xl md:text-2xl lg:text-3xl mb-2 hidden lg:flex flex-col">Why Choose Black Wolf Tech Indonesia?</h2>
+          <ul className="list-disc list-inside mb-4 hidden lg:flex flex-col">
+            <br></br> <li><strong>Innovative Solutions:</strong><br></br> We thrive on innovation, delivering cutting-edge solutions that propel your business forward in a rapidly evolving tech environment.</li>
+            <br></br> <li><strong>Customer-Centric Approach:</strong> <br></br>Your success is our priority. We take the time to understand your specific needs, crafting solutions that align seamlessly with your goals.</li>
+
+            <br></br>
+            <li><strong>Tech Prowess:</strong><br></br> With a team of skilled professionals, we bring a wealth of technical expertise to the table, offering a diverse range of services to meet your requirements.</li>
+          </ul>
+
+          <h2 className="text-xl md:text-2xl lg:text-3xl mb-2">Our Tech Domains:</h2>
+          <ul className="list-disc list-inside mb-4">
+            <li>Software Development</li>
+            <li>IT Consulting</li>
+            <li>Cybersecurity Solutions</li>
+            <li>Cloud Services</li>
+            <li>Data Analytics</li>
+          </ul>
+
+          <p className="hidden lg:flex">🌐🐺 <a href="#blackwolftechid" title="Black Wolf Tech Indonesia">#BlackWolfTechID</a> <a href="#techinnovation" title="Tech Innovation">#TechInnovation</a> <a href="#digitalexcellence" title="Digital Excellence">#DigitalExcellence</a></p>
+        </div>
+      </div>}
+
+
+
+
     </div>
   );
 }
