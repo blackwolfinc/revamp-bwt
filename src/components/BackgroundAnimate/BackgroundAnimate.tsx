@@ -15,13 +15,13 @@ export const BackgroundAnimate = (props :any) => {
           <Image alt="" className='opacity-10 z-[0] animation-backgroundone top-[-20rem] lg:!left-[-20rem] animation-background3 invert' src={Cloud} />
           <Image alt="" className='opacity-10 z-[0] animation-backgroundone  lg:!left-[-20rem]  ' src={Forest2} />
           <Image alt="" className='opacity-10 z-[0] animation-backgroundtwo  animation-background2 ' src={Forest} />
-          <Image alt="" className='opacity-10 z-[-1] animation-backgroundtwo lg:!left-[-20rem] animation-background  ' src={Forest} />
+          <Image alt="" className='opacity-10 z-[-1] hidden lg:flex  animation-backgroundtwo lg:!left-[-20rem] animation-background  ' src={Forest} />
            </> : 
            <>
            <Image alt="" className='opacity-10 z-[0] animation-backgroundone  top-[-20rem] lg:!left-[-20rem] animation-background3' src={Cloud} />
            <Image alt="" className='opacity-10 z-[0] animation-backgroundone  lg:!left-[-20rem]  ' src={Forest2} />
-           <Image alt="" className='opacity-10 z-[0] animation-backgroundtwo  animation-background2' src={Forest} />
-           <Image alt="" className='opacity-10 z-[-1] animation-backgroundtwo lg:!left-[-20rem] animation-background  ' src={Forest} />
+           <Image alt="" className='opacity-10 z-[0]  animation-backgroundtwo  animation-background2' src={Forest} />
+           <Image alt="" className='opacity-10 z-[-1] hidden lg:flex animation-backgroundtwo lg:!left-[-20rem] animation-background  ' src={Forest} />
             </> 
       }
     </div>

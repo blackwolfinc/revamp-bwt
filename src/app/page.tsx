@@ -15,6 +15,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const variants = {
     visible: {
       x: 0,
@@ -42,14 +44,21 @@ export default function Home() {
       <div className="background-second w-screen h-screen absolute z-20 "></div>
       <div className="background-third w-screen h-screen absolute z-20 "></div>
       <BackgroundAnimate Animate={OpenSetting} />
-
+      {/* Audio component */}
+      {isPlaying && (
+        <audio autoPlay preload="auto">
+          <source src="/assets/mp4/backsound.mp4" type="audio/mp4" />
+          Your browser does not support the audio tag.
+        </audio>
+      )}
       <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60vh] lg:bottom-[5vh] ">
-        <AutoPlay/>
+        <AutoPlay />
       </div>
 
       <motion.div
         onClick={() => {
           setOpenSetting(!OpenSetting);
+          setIsPlaying(true);
         }}
         initial={false}
         animate={{
@@ -75,15 +84,16 @@ export default function Home() {
         className={`bg-[#e8e8e8f6] ${
           OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
         } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
-      >
-      </motion.div>
+      ></motion.div>
 
       <motion.div
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
         className={` ${
-          OpenSetting ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]" : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
+          OpenSetting
+            ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
+            : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
         } h-screen absolute flex justify-center items-center left-0  `}
       >
         {/* Content of your component */}
@@ -122,6 +132,15 @@ export default function Home() {
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             Game
+          </div>
+          <div
+            onClick={() => {
+              setIsPlaying(false);
+              setOpenSetting(!OpenSetting);
+            }}
+            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+          >
+            Mute Audio
           </div>
 
           <div
