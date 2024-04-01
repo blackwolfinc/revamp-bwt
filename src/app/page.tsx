@@ -8,6 +8,10 @@ import { OpenAnimation } from "@/components/OpenAnimation/OpenAnimation";
 import { IoMdSettings } from "react-icons/io";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import AutoPlay from "@/components/Slider/AutoPlay";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
@@ -39,6 +43,10 @@ export default function Home() {
       <div className="background-third w-screen h-screen absolute z-20 "></div>
       <BackgroundAnimate Animate={OpenSetting} />
 
+      <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60vh] lg:bottom-[5vh] ">
+        <AutoPlay/>
+      </div>
+
       <motion.div
         onClick={() => {
           setOpenSetting(!OpenSetting);
@@ -54,7 +62,7 @@ export default function Home() {
           stiffness: 200,
           damping: 20,
         }}
-        className="absolute   lg:right-0 z-30  lg:top-[30%] bottom-[12%] bg-slate-500 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
+        className="absolute   lg:right-0 z-30  lg:top-[30%] bottom-[16%] bg-slate-500 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
       >
         {/* Content of your component */}
         <IoMdSettings className="animate-spin-default" />
