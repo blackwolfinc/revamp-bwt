@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 const baseURL = "https://www.blackwolftech.id/";
 
 // Define RootLayout function component
-export default function RootLayout({ children }:any) {
+export default function RootLayout({ children }: any) {
   // Define metadata variables
   const title = "Black Wolf Tech Indonesia | Cutting-Edge Software Solutions";
   const description = "Empower your business with cutting-edge software solutions from Black Wolf Tech Indonesia. Specializing in innovative technology, we deliver tailored software solutions to drive your success.";
@@ -41,8 +41,12 @@ export default function RootLayout({ children }:any) {
         <link rel='alternate' type='application/rss+xml' title='RSS' href={`${baseURL}rss`} />
         <link rel='alternate' type='application/atom+xml' title='Atom 0.3' href={`${baseURL}feed.atom`} />
       </Head>
-      <Analytics/>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+     
+
+        {children}
+        
+        <Analytics /></body>
     </html>
   );
 }
