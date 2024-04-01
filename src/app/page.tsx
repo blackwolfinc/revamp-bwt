@@ -46,7 +46,7 @@ export default function Home() {
       <BackgroundAnimate Animate={OpenSetting} />
       {/* Audio component */}
       {isPlaying && (
-        <audio autoPlay preload="auto">
+        <audio autoPlay preload="auto" loop>
           <source src="/assets/mp4/backsound.mp4" type="audio/mp4" />
           Your browser does not support the audio tag.
         </audio>
@@ -81,7 +81,7 @@ export default function Home() {
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={`bg-[#e8e8e8f6] ${
+        className={`bg-[#ffffff] ${
           OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
         } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
       ></motion.div>
@@ -154,9 +154,9 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <div className="flex flex-col w-full h-full  relative  justify-center  items-center  scale-75">
+      <div className="flex flex-col w-full h-full  relative  justify-center  items-center   scale-75">
         <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
-          <div className=" absolute right-0 top-0 opacity-70">
+          <div className={` absolute right-0 top-0 ${OpenSetting ? "opacity-100": "opacity-70"}`}>
             <Image
               alt=""
               height={350}
