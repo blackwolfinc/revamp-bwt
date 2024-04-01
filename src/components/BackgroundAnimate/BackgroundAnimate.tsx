@@ -36,15 +36,15 @@ export const BackgroundAnimate = (props: any) => {
             className="opacity-10 z-[-1] flex animation-backgroundtwo lg:!left-[-20rem] animation-background  lg:hidden"
             src={Forest}
           />
-          <div className="relative z-0 hidden lg:flex w-screen h-screen overflow-hidden opacity-40 grayscale ">
+          <div className="relative z-0 hidden lg:flex w-screen h-screen overflow-hidden opacity-40  brightness-[0.8]">
             <video
-              className="z-0 w-screen absolute h-screen lg:top-[-20vh] scale-[1.35]"
+              className="z-0 w-screen absolute h-screen lg:top-[0vh] opacity-80 left-[-5vw] scale-[1.75]"
               autoPlay
               loop
               preload="auto"
               muted
             >
-              <source src="/assets/mp4/vidio.mp4" type="video/mp4" />
+              <source src="/assets/mp4/vidio.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
           </div>

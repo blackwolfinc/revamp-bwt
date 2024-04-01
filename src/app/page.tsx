@@ -38,7 +38,7 @@ export default function Home() {
     },
   };
   return (
-    <div className=" w-screen h-screen relative bg-gradient-to-br from-[#1f1f1f50] via-[#45464e99] to-[#080707] overflow-hidden">
+    <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
       <div className="background-main w-screen h-screen absolute z-20 "></div>
       <div className="background-second w-screen h-screen absolute z-20 "></div>
@@ -71,7 +71,7 @@ export default function Home() {
           stiffness: 200,
           damping: 20,
         }}
-        className="absolute   lg:right-0 z-30  lg:top-[30%] bottom-[16%] bg-slate-500 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
+        className="absolute   lg:right-0 z-30  lg:top-[30%] bottom-[16%] bg-gradient-to-r from-slate-500 to-slate-800 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
       >
         {/* Content of your component */}
         <IoMdSettings className="animate-spin-default" />
@@ -81,7 +81,7 @@ export default function Home() {
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={`bg-[#ffffff] ${
+        className={` bg-gradient-to-r from-[#ffffff] via-[#fbfbfb] to-[#000000] ${
           OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
         } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
       ></motion.div>
@@ -156,7 +156,11 @@ export default function Home() {
 
       <div className="flex flex-col w-full h-full  relative  justify-center  items-center   scale-75">
         <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
-          <div className={` absolute right-0 top-0 ${OpenSetting ? "opacity-100": "opacity-70"}`}>
+          <div
+            className={` absolute right-0 top-0 ${
+              OpenSetting ? "opacity-100" : "opacity-70"
+            }`}
+          >
             <Image
               alt=""
               height={350}
