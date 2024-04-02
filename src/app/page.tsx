@@ -12,12 +12,11 @@ import AutoPlay from "@/components/Slider/AutoPlay";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+import Clock from "@/components/Clock/Clock";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const [Page, setPage] = useState("home");
 
   const variants = {
@@ -72,6 +71,8 @@ export default function Home() {
         </div>
       )}
 
+    {Page == "home" &&  <div className=" w-[10%] absolute right-[35vw] lg:right-[1rem] bottom-[13vh] lg:bottom-[0.5vh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70"><Clock/></div>}
+
       {/* button */}
       <motion.div
         onClick={() => {
@@ -89,7 +90,7 @@ export default function Home() {
           stiffness: 200,
           damping: 20,
         }}
-        className="absolute   lg:right-0 z-30  lg:top-[30%] bottom-[16%] bg-gradient-to-r from-slate-500 to-slate-800 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
+        className="absolute cursor-pointer  lg:right-0 z-30  lg:top-[30%] bottom-[16%] bg-gradient-to-r from-slate-500 to-slate-800 shadow-xl  rounded-r-lg lg:rounded-r-none lg:rounded-l-lg w-[3rem] flex justify-center items-center h-[5rem] lg:h-[10rem]"
       >
         {/* Content of your component */}
         <IoMdSettings className="animate-spin-default" />
@@ -149,7 +150,7 @@ export default function Home() {
             About Us
           </div>
 
-          <div
+          {/* <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
               setPage("home");
@@ -157,7 +158,7 @@ export default function Home() {
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             Game
-          </div>
+          </div> */}
           <div
             onClick={() => {
               setIsPlaying(false);
@@ -211,9 +212,9 @@ export default function Home() {
 
       {!OpenSetting && (
         <div className="h-screen flex justify-center relative items-center  lg:z-10">
-          <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-5/6 p-8 rounded-lg top-10vh absolute overflow-y-auto text-white">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4">
-              Black Wolf Tech Indonesia
+          <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-[90vh] p-8 rounded-lg top-10vh absolute overflow-y-auto text-white">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4 bg-[#ffffffeb] text-black py-[0.5rem] uppercase rounded-md px-[1rem]">
+              Black Wolf Tech
             </h1>
             <p className="mb-4">
               Welcome to Black Wolf Tech Indonesia, your trusted ally in
@@ -222,57 +223,25 @@ export default function Home() {
               unique challenges, ensuring you stay at the forefront of
               innovation.
             </p>
-
-            <h2 className="text-xl md:text-2xl lg:text-3xl mb-2 hidden lg:flex flex-col">
-              Why Choose Black Wolf Tech Indonesia?
-            </h2>
-            <ul className="list-disc list-inside mb-4 hidden lg:flex flex-col">
-              <br></br>{" "}
-              <li>
-                <strong>Innovative Solutions:</strong>
-                <br></br> We thrive on innovation, delivering cutting-edge
-                solutions that propel your business forward in a rapidly
-                evolving tech environment.
-              </li>
-              <br></br>{" "}
-              <li>
-                <strong>Customer-Centric Approach:</strong> <br></br>Your
-                success is our priority. We take the time to understand your
-                specific needs, crafting solutions that align seamlessly with
-                your goals.
-              </li>
-              <br></br>
-              <li>
-                <strong>Tech Prowess:</strong>
-                <br></br> With a team of skilled professionals, we bring a
-                wealth of technical expertise to the table, offering a diverse
-                range of services to meet your requirements.
-              </li>
-            </ul>
-
-            <h2 className="text-xl md:text-2xl lg:text-3xl mb-2">
-              Our Tech Domains:
-            </h2>
-            <ul className="list-disc list-inside mb-4">
-              <li>Software Development</li>
-              <li>IT Consulting</li>
-              <li>Cybersecurity Solutions</li>
-              <li>Cloud Services</li>
-              <li>Data Analytics</li>
-            </ul>
-
-            <p className="hidden lg:flex">
-              🌐🐺{" "}
-              <a href="#blackwolftechid" title="Black Wolf Tech Indonesia">
-                #BlackWolfTechID
-              </a>{" "}
-              <a href="#techinnovation" title="Tech Innovation">
-                #TechInnovation
-              </a>{" "}
-              <a href="#digitalexcellence" title="Digital Excellence">
-                #DigitalExcellence
-              </a>
-            </p>
+            <div>
+              <p className="mb-4 hidden lg:flex">
+                Partner with Black Wolf Tech Indonesia to redefine the future of
+                technology together. Elevate your digital presence, embrace
+                innovation, and overcome the challenges of tomorrow. Connect
+                with us to embark on a journey of unparalleled technological
+                excellence.
+              </p>
+              <h2 className="text-xl md:text-2xl lg:text-3xl mb-2">
+                Our Tech Domains:
+              </h2>
+              <ul className="list-disc list-inside mb-4">
+                <li>Software Development</li>
+                <li>IT Consulting</li>
+                <li>Cybersecurity Solutions</li>
+                <li>Cloud Services</li>
+                <li>Data Analytics</li>
+              </ul>
+            </div>
           </div>
         </div>
       )}

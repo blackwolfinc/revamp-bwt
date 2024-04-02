@@ -42,10 +42,7 @@ export default function RootLayout({ children }: any) {
         <link rel='alternate' type='application/atom+xml' title='Atom 0.3' href={`${baseURL}feed.atom`} />
       </Head>
       <body className={inter.className}>
-     
-
         {children}
-        
         <Analytics /></body>
     </html>
   );
