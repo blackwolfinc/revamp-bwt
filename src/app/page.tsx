@@ -43,19 +43,16 @@ export default function Home() {
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
       <div
-        className={`background-main w-screen h-screen absolute z-20 ${
-          Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
-        }`}
+        className={`background-main w-screen h-screen absolute z-20 ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
+          }`}
       ></div>
       <div
-        className={`background-second w-screen h-screen absolute z-20  ${
-          Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
-        }`}
+        className={`background-second w-screen h-screen absolute z-20  ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
+          }`}
       ></div>
       <div
-        className={`background-third w-screen h-screen absolute z-20  ${
-          Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
-        }`}
+        className={`background-third w-screen h-screen absolute z-20  ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
+          }`}
       ></div>
       <BackgroundAnimate Animate={OpenSetting} />
       {/* Audio component */}
@@ -71,7 +68,7 @@ export default function Home() {
         </div>
       )}
 
-    {Page == "home" &&  <div className=" w-[10%] absolute left-[-34vw] lg:right-[2rem] lg:left-[87vw] top-[-1.6vh] lg:top-[0.5vh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70"><Clock/></div>}
+      {/* {Page == "home" &&  <div className=" w-[10%] absolute left-[-34vw] lg:right-[2rem] lg:left-[80vw] top-[-1.6vh] lg:top-[0.5vh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70">/div>} */}
 
       {/* button */}
       <motion.div
@@ -101,9 +98,8 @@ export default function Home() {
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={` bg-gradient-to-r from-[#828282] via-[#fbfbfb] to-[#000000] ${
-          OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
-        } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
+        className={` bg-gradient-to-r from-[#828282] via-[#fbfbfb] to-[#000000] ${OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
+          } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
       ></motion.div>
 
       {/* menu */}
@@ -111,15 +107,19 @@ export default function Home() {
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={` ${
-          OpenSetting
+        className={` ${OpenSetting
             ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
             : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
-        } h-screen absolute flex justify-center items-center left-0  `}
+          } h-screen absolute flex justify-center items-center left-0  `}
       >
         {/* Content of your component */}
 
         <div className="w-full h-full    z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
+          <div
+            className="bg-[#f0f0f08b] border-[2px] border-black  px-[2rem]     duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+          >
+            <Clock />
+          </div>
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
@@ -187,9 +187,8 @@ export default function Home() {
         <div className="flex flex-col w-full h-full  relative  justify-center  items-center   scale-75">
           <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
             <div
-              className={` absolute right-0 top-0 ${
-                OpenSetting ? "opacity-100" : "opacity-70"
-              }`}
+              className={` absolute right-0 top-0 ${OpenSetting ? "opacity-100" : "opacity-70"
+                }`}
             >
               <Image
                 alt=""

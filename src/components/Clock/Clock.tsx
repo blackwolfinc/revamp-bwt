@@ -19,7 +19,7 @@ const Clock = () => {
   };
 
   return (
-    <div className=' w-[20rem] bg-[#8787874f] lg:bg-[#ffffff74] text-[#ffffffa8] lg:text-black text-center flex justify-end lg:justify-start px-[2em] rounded-md items-center'>
+    <div className=' text-black text-center flex  justify-center rounded-md items-center'>
       {formatTime(time)}
     </div>
   );
