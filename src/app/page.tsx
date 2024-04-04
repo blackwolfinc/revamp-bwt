@@ -71,7 +71,7 @@ export default function Home() {
         </div>
       )}
 
-    {Page == "home" &&  <div className=" w-[10%] absolute right-[35vw] lg:right-[1rem] bottom-[13vh] lg:bottom-[0.5vh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70"><Clock/></div>}
+    {Page == "home" &&  <div className=" w-[10%] absolute left-[-34vw] lg:right-[2rem] lg:left-[87vw] top-[-1.6vh] lg:top-[0.5vh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70"><Clock/></div>}
 
       {/* button */}
       <motion.div
