@@ -34,7 +34,7 @@ export default function Home() {
       },
     },
     hidden: {
-      x: "-100vw",
+      x: "-100svw",
       opacity: 0,
       transition: {
         duration: 0.8,
@@ -46,15 +46,15 @@ export default function Home() {
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
       <div
-        className={`background-main w-screen h-screen absolute z-20 ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0vh]" : ""
+        className={`background-main w-screen h-screen absolute z-20 ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]" : ""
           }`}
       ></div>
       <div
-        className={`background-second w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7]top-[0vh]" : ""
+        className={`background-second w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]" : ""
           }`}
       ></div>
       <div
-        className={`background-third w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0vh]" : ""
+        className={`background-third w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]" : ""
           }`}
       ></div>
       <BackgroundAnimate Animate={OpenSetting} />
@@ -66,12 +66,12 @@ export default function Home() {
         </audio>
       )}
       {Page == "home" && (
-        <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60vh] lg:bottom-[5vh] ">
+        <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
           <AutoPlay />
         </div>
       )}
 
-      {/* {Page == "home" &&  <div className=" w-[10%] absolute left-[-34vw] lg:right-[2rem] lg:left-[80vw] top-[-1.6vh] lg:top-[0.5vh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70">/div>} */}
+      {/* {Page == "home" &&  <div className=" w-[10%] absolute left-[-34svw] lg:right-[2rem] lg:left-[80svw] top-[-1.6svh] lg:top-[0.5svh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70">/div>} */}
 
       {/* button */}
       <motion.div
@@ -81,7 +81,7 @@ export default function Home() {
         }}
         initial={false}
         animate={{
-          x: !OpenSetting ? 0 : "30vw",
+          x: !OpenSetting ? 0 : "30svw",
           opacity: !OpenSetting ? 1 : 0,
         }}
         transition={{
@@ -110,15 +110,15 @@ export default function Home() {
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
         className={` ${OpenSetting
-          ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
-          : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
+          ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11svh]"
+          : "w-[30%]  mt-[-4rem] lg:mt-[11svh]"
           } h-screen absolute flex justify-center items-center left-0  `}
       >
         {/* Content of your component */}
 
         <div className="w-full h-full    z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
           <div
-            className="bg-[#f0f0f08b] border-[2px] border-black  px-[2rem]     duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="bg-[#f0f0f08b] border-[2px] border-black  px-[2rem]     duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             <Clock />
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("clients");
             }}
-            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             Our Client
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("project");
             }}
-            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             Our Project
           </div>
@@ -147,7 +147,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("about");
             }}
-            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             About Us
           </div>
@@ -158,7 +158,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("home");
             }}
-            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             Mute Audio
           </div>
@@ -168,7 +168,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("home");
             }}
-            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
             Exit
           </div>
@@ -209,7 +209,7 @@ export default function Home() {
       /* 
       {!OpenSetting && (
         <div className="h-screen flex justify-center relative items-center  lg:z-10">
-          <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-[90vh] p-8 rounded-lg top-10vh absolute overflow-y-auto text-white">
+          <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-[90svh] p-8 rounded-lg top-10svh absolute overflow-y-auto text-white">
             <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4 bg-[#ffffffeb] text-black py-[0.5rem] uppercase rounded-md px-[1rem]">
               Black Wolf Tech
             </h1>

@@ -38,7 +38,7 @@ export const BackgroundAnimate = (props: any) => {
           />
           <div className="relative z-0 hidden lg:flex w-screen h-screen overflow-hidden opacity-40  brightness-[0.8]">
             <video
-              className="z-0 w-screen absolute h-screen lg:top-[0vh] opacity-80 left-[-5vw] scale-[1.75]"
+              className="z-0 w-screen absolute h-screen lg:top-[0svh] opacity-80 left-[-5svw] scale-[1.75]"
               autoPlay
               loop
               preload="auto"

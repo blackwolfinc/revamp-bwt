@@ -20,7 +20,7 @@ import Slider from "react-slick";
 
 function AutoPlay() {
   return (
-    <div className="slider-container h-[8rem] w-screen lg:w-[60vw]">
+    <div className="slider-container h-[8rem] w-screen lg:w-[60svw]">
       <Slider 
       dots={false}
       infinite={true}

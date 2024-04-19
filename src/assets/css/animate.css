@@ -29,7 +29,7 @@ a {
     border: 0px solid rgb(30, 30, 30);
   }
   100% {
-    transform: translateX(-50vw);
+    transform: translateX(-50svw);
     opacity: 0;
     border-bottom: 20px solid rgb(30, 30, 30);
     border-right: 20px solid rgb(30, 30, 30);
@@ -50,7 +50,7 @@ a {
     border: 0px solid rgb(30, 30, 30);
   }
   100% {
-    transform: translateX(50vw);
+    transform: translateX(50svw);
     opacity: 0;
     border-top: 20px solid rgb(30, 30, 30);
     border-left: 20px solid rgb(30, 30, 30);
@@ -151,7 +151,7 @@ a {
   position: fixed !important;
   bottom: 0px;
   height: 70% !important;
-  width: 100vw !important;
+  width: 100svw !important;
   min-width: max-content !important;
 }
 
@@ -161,7 +161,7 @@ a {
   height: 100% !important;
   min-width: -webkit-max-content !important;
   min-width: -moz-max-content !important;
-  min-width: 140vw !important;
+  min-width: 140svw !important;
 }
 .neonText {
   color: #fff;
@@ -248,7 +248,7 @@ a {
 }
 
 .slick-list {
-  height: 100vh !important;
+  height: 100svh !important;
 }
 
 
