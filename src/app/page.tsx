@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Claw from "../../public/assets/img/claw.png";
 import wolf from "../../public/assets/img/wolf3.png";
+import p1 from "../../public/assets/project/p1.png";
 import { BackgroundAnimate } from "@/components/BackgroundAnimate/BackgroundAnimate";
 import { OpenAnimation } from "@/components/OpenAnimation/OpenAnimation";
 import { IoMdSettings } from "react-icons/io";
@@ -13,6 +14,8 @@ import AutoPlay from "@/components/Slider/AutoPlay";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Clock from "@/components/Clock/Clock";
+import Link from "next/link";
+import Clients from "@/components/ClientSection/Clients";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
@@ -43,15 +46,15 @@ export default function Home() {
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
       <div
-        className={`background-main w-screen h-screen absolute z-20 ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
+        className={`background-main w-screen h-screen absolute z-20 ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0vh]" : ""
           }`}
       ></div>
       <div
-        className={`background-second w-screen h-screen absolute z-20  ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
+        className={`background-second w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7]top-[0vh]" : ""
           }`}
       ></div>
       <div
-        className={`background-third w-screen h-screen absolute z-20  ${Page == "about" ? "rotate-[338deg] scale-[1.7] top-[0vh]" : ""
+        className={`background-third w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0vh]" : ""
           }`}
       ></div>
       <BackgroundAnimate Animate={OpenSetting} />
@@ -92,7 +95,6 @@ export default function Home() {
         {/* Content of your component */}
         <IoMdSettings className="animate-spin-default" />
       </motion.div>
-
       {/* background */}
       <motion.div
         initial={false}
@@ -108,8 +110,8 @@ export default function Home() {
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
         className={` ${OpenSetting
-            ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
-            : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
+          ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11vh]"
+          : "w-[30%]  mt-[-4rem] lg:mt-[11vh]"
           } h-screen absolute flex justify-center items-center left-0  `}
       >
         {/* Content of your component */}
@@ -123,7 +125,7 @@ export default function Home() {
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
-              setPage("home");
+              setPage("clients");
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -133,7 +135,7 @@ export default function Home() {
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
-              setPage("home");
+              setPage("project");
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
@@ -150,15 +152,6 @@ export default function Home() {
             About Us
           </div>
 
-          {/* <div
-            onClick={() => {
-              setOpenSetting(!OpenSetting);
-              setPage("home");
-            }}
-            className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83vw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80vw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
-          >
-            Game
-          </div> */}
           <div
             onClick={() => {
               setIsPlaying(false);
@@ -209,6 +202,11 @@ export default function Home() {
         </div>
       )}
 
+
+      {!OpenSetting && Page == "project" && <Clients />
+
+
+      /* 
       {!OpenSetting && (
         <div className="h-screen flex justify-center relative items-center  lg:z-10">
           <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-[90vh] p-8 rounded-lg top-10vh absolute overflow-y-auto text-white">
@@ -243,7 +241,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

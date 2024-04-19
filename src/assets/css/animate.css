@@ -250,3 +250,56 @@ a {
 .slick-list {
   height: 100vh !important;
 }
+
+
+
+.container-animate {
+  perspective: 1000px; /* Define the perspective for 3D effect */
+
+}
+
+.image-animate {
+  animation: rotate3d 15s infinite linear; /* Apply the animation */
+  border: 5px solid #fff; /* Add a border for depth perception */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a shadow for more depth */
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateY(0deg); /* Start rotation at 0 degrees */
+  }
+  25% {
+    transform: rotateY(20deg); /* Rotate to 30 degrees */
+  }
+  50% {
+    transform: rotateY(0deg); /* Back to 0 degrees */
+  }
+  75% {
+    transform: rotateY(-20deg); /* Rotate to -30 degrees */
+  }
+  100% {
+    transform: rotateY(0deg); /* Back to 0 degrees */
+  }
+}
+
+.iframe {
+  width: 100%; /* Occupy full width of the container */
+  height: 100%; /* Occupy full height of the container */
+  border: none; /* Remove border */
+  animation: rotateY 10s infinite linear; /* Apply the animation */
+  transform-origin: center center; /* Set transform origin to center */
+
+  scale: 0.9;
+
+
+}
+.iframe#document html{
+  background-color: red;
+}
+
+
+.wrap-content {
+  overflow: hidden;
+  position: relative;
+  -ms-zoom: 0.55 !important;
+}
