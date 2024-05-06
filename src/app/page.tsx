@@ -1,21 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import Claw from "../../public/assets/img/claw.png";
-import wolf from "../../public/assets/img/wolf3.png";
-import p1 from "../../public/assets/project/p1.png";
 import { BackgroundAnimate } from "@/components/BackgroundAnimate/BackgroundAnimate";
 import { OpenAnimation } from "@/components/OpenAnimation/OpenAnimation";
-import { IoMdSettings } from "react-icons/io";
-import { useState } from "react";
-import { motion } from "framer-motion";
 import AutoPlay from "@/components/Slider/AutoPlay";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
+import { IoMdSettings } from "react-icons/io";
+import Claw from "../../public/assets/img/claw.png";
+import wolf from "../../public/assets/img/wolf3.png";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Clock from "@/components/Clock/Clock";
-import Link from "next/link";
 import Clients from "@/components/ClientSection/Clients";
+import Clock from "@/components/Clock/Clock";
+import GameList from "@/components/GameList/GameList";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
@@ -46,32 +45,48 @@ export default function Home() {
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
       <div
-        className={`background-main w-screen h-screen absolute z-20 ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]" : ""
-          }`}
+        className={`background-main w-screen h-screen absolute z-20 ${
+          Page == "project"
+            ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]"
+            : ""
+        }`}
       ></div>
       <div
-        className={`background-second w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]" : ""
-          }`}
+        className={`background-second w-screen h-screen absolute z-20  ${
+          Page == "project"
+            ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]"
+            : ""
+        }`}
       ></div>
       <div
-        className={`background-third w-screen h-screen absolute z-20  ${Page == "project" ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]" : ""
-          }`}
+        className={`background-third w-screen h-screen absolute z-20  ${
+          Page == "project"
+            ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]"
+            : ""
+        }`}
       ></div>
       <BackgroundAnimate Animate={OpenSetting} />
       {/* Audio component */}
-      {isPlaying && (
+
+      {isPlaying && Page !== "clients" && (
         <audio autoPlay preload="auto" loop>
           <source src="/assets/mp4/backsound.mp4" type="audio/mp4" />
           Your browser does not support the audio tag.
         </audio>
       )}
+
+      {isPlaying && Page == "clients" && (
+        <audio autoPlay preload="auto" loop>
+          <source src="/assets/mp4/backsongGame.mp4" type="audio/mp4" />
+          Your browser does not support the audio tag.
+        </audio>
+      )}
+
       {Page == "home" && (
         <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
           <AutoPlay />
         </div>
       )}
-
-      {/* {Page == "home" &&  <div className=" w-[10%] absolute left-[-34svw] lg:right-[2rem] lg:left-[80svw] top-[-1.6svh] lg:top-[0.5svh] z-50 px-[1rem] py-[1rem] font-semibold text-[24px] opacity-70">/div>} */}
 
       {/* button */}
       <motion.div
@@ -100,8 +115,9 @@ export default function Home() {
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={` bg-gradient-to-r from-[#828282] via-[#fbfbfb] to-[#000000] ${OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
-          } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
+        className={` bg-gradient-to-r from-[#828282] via-[#fbfbfb] to-[#000000] ${
+          OpenSetting ? "w-[100%] z-[0]" : "w-[100%]"
+        } h-screen absolute flex justify-center items-center left-0 border-l-[2px] hover:bg-black rounded-lg`}
       ></motion.div>
 
       {/* menu */}
@@ -109,17 +125,16 @@ export default function Home() {
         initial={false}
         animate={OpenSetting ? "visible" : "hidden"}
         variants={variants}
-        className={` ${OpenSetting
-          ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11svh]"
-          : "w-[30%]  mt-[-4rem] lg:mt-[11svh]"
-          } h-screen absolute flex justify-center items-center left-0  `}
+        className={` ${
+          OpenSetting
+            ? "w-[53%] z-[30] h-[60%] mt-[-4rem] lg:mt-[11svh]"
+            : "w-[30%]  mt-[-4rem] lg:mt-[11svh]"
+        } h-screen absolute flex justify-center items-center left-0  `}
       >
         {/* Content of your component */}
 
         <div className="w-full h-full    z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
-          <div
-            className="bg-[#f0f0f08b] border-[2px] border-black  px-[2rem]     duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
-          >
+          <div className="bg-[#f0f0f08b] border-[2px] border-black  px-[2rem]     duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center">
             <Clock />
           </div>
           <div
@@ -129,9 +144,8 @@ export default function Home() {
             }}
             className="bg-black border-[2px] border-black hover:bg-white hover:text-black px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
           >
-            Our Client
+            Surprise !!
           </div>
-
           <div
             onClick={() => {
               setOpenSetting(!OpenSetting);
@@ -180,8 +194,9 @@ export default function Home() {
         <div className="flex flex-col w-full h-full  relative  justify-center  items-center   scale-75">
           <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center items-center dropLogo ">
             <div
-              className={` absolute right-0 top-0 ${OpenSetting ? "opacity-100" : "opacity-70"
-                }`}
+              className={` absolute right-0 top-0 ${
+                OpenSetting ? "opacity-100" : "opacity-70"
+              }`}
             >
               <Image
                 alt=""
@@ -202,20 +217,19 @@ export default function Home() {
         </div>
       )}
 
+      {
+        !OpenSetting && Page == "project" && <Clients />
 
-      {!OpenSetting && Page == "project" && <Clients />
-
-
-      /* 
-      {!OpenSetting && (
-        <div className="h-screen flex justify-center relative items-center  lg:z-10">
-          <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-[90svh] p-8 rounded-lg top-10svh absolute overflow-y-auto text-white">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4 bg-[#ffffffeb] text-black py-[0.5rem] uppercase rounded-md px-[1rem]">
-              Black Wolf Tech
-            </h1>
-            <p className="mb-4">
-              Welcome to Black Wolf Tech Indonesia, your trusted ally in
-              navigating the digital landscape. As a leading force in technology
+        /* 
+          {!OpenSetting && (
+            <div className="h-screen flex justify-center relative items-center  lg:z-10">
+              <div className="bg-gradient-to-r from-[#16161697] to-[#000000] shadow-2xl w-5/6 md:w-4/6 lg:w-5/6 h-[90svh] p-8 rounded-lg top-10svh absolute overflow-y-auto text-white">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4 bg-[#ffffffeb] text-black py-[0.5rem] uppercase rounded-md px-[1rem]">
+                  Black Wolf Tech
+                </h1>
+                <p className="mb-4">
+                  Welcome to Black Wolf Tech Indonesia, your trusted ally in
+                  navigating the digital landscape. As a leading force in technology
               solutions, we specialize in providing tailored answers to your
               unique challenges, ensuring you stay at the forefront of
               innovation.
@@ -241,7 +255,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      )} */}
+      )} */
+      }
+
+      {!OpenSetting && Page == "clients" && <GameList />}
     </div>
   );
 }

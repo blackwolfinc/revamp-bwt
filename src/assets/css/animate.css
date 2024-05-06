@@ -303,3 +303,15 @@ a {
   position: relative;
   -ms-zoom: 0.55 !important;
 }
+
+::-webkit-scrollbar {
+  background-color: rgba(148, 148, 148, 0.286);
+  border-radius: 12px;
+}
+
+
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(49, 109, 200, 0.803);
+  border-radius: 6px;
+}
