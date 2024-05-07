@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const GameCard = ({ game }:any) => {
   const [selectedGameUrl, setSelectedGameUrl] = useState(null);
@@ -14,29 +14,35 @@ const GameCard = ({ game }:any) => {
       <h1 className="text-3xl font-bold mb-4 px-[1rem] text-[20px]">Browser Games</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  overflow-y-auto max-h-[50vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 px-[1rem]">
         {game.map((game:any) => (
-         <div 
-         key={game.id} 
-         className="rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg relative"
-         onClick={() => handleCardClick(game.url)}
-       >
-         <div 
-           className="absolute inset-0 z-10 bg-gradient-to-b from-black to-transparent border-[4px] opacity-70 rounded-lg"
-         ></div>
-         <div className="relative w-full h-48 sm:h-56">
-           <Image
-             src={game.thumb}
-             alt={game.title}
-             layout="fill"
-             objectFit="cover"
-             priority
-           />
-         </div>
-         <div className="p-4 absolute inset-0 flex flex-col justify-center items-center text-white z-20">
-           <h5 className="font-bold text-lg mb-2">{game.title}</h5>
-           <p className="text-sm mb-2">{game.category}</p>
-           <button className="block text-blue-500 hover:text-blue-700 bg-blue-400 px-[2rem] py-[1rem] rounded-3xl text-white">Play Now</button>
-         </div>
-       </div>
+          <motion.div
+            key={game.id}
+            className="rounded-lg overflow-hidden shadow-md  cursor-pointer opacity-80 hover:opacity-100 hover:shadow-lg relative "
+            whileHover={{ scale: 1.05 }}
+            onClick={() => handleCardClick(game.url)}
+          >
+            <div
+              className="absolute inset-0 z-10 bg-gradient-to-b from-black to-transparent  opacity-70 rounded-lg"
+            ></div>
+            <motion.div
+              className="relative w-full h-48 sm:h-56 grayscale-[1] scale-75 "
+              whileHover={{ scale: 1.05 }}
+            >
+              <Image
+                src={game.thumb}
+                alt={game.title}
+                layout="fill"
+                objectFit="cover"
+                priority
+                className="rounded-xl"
+                quality={10}
+              />
+            </motion.div>
+            <div className="p-4 absolute inset-0 flex flex-col justify-center items-center text-white z-20">
+              <h5 className="font-bold text-lg mb-2">{game.title}</h5>
+              <p className="text-sm mb-2">{game.category}</p>
+              <button className="block   bg-[#000000] px-[2rem] py-[1rem] border-2 rounded-3xl text-white">Play Now</button>
+            </div>
+          </motion.div>
         ))}
       </div>
       {selectedGameUrl && (
