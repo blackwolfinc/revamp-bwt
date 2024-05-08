@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GameCard from './GameCard';
 import gamesData from '../../assets/json/data.json'; // Adjust the path as per your folder structure
 
-const shuffleArray = (array) => {
+const shuffleArray = (array:any) => {
   let currentIndex = array.length, randomIndex;
 
   // While there remain elements to shuffle...
