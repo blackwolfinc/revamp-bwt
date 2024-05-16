@@ -39,7 +39,7 @@ const usersData = [
 
 const Page = () => {
   // State to hold the user data
-  const [users, setUsers] = useState([]);
+  const [users, setUsers]:any = useState([]);
 
   useEffect(() => {
     // Set the users data from the array
@@ -70,7 +70,7 @@ const Page = () => {
         </h2>
       </div>
       <div className="container flex gap-2 warp flex-wrap">
-        {users.map((user, index) => (
+        {users.map((user :any, index:any) => (
           <div key={index} className="p-[10px] min-w-[9rem] border w-fit">
             <h1 className="font-bold">{user.username}</h1>
             <p>{user.message}</p>
