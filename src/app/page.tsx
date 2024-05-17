@@ -46,25 +46,33 @@ export default function Home() {
   return (
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
-      <Tour/>
+      <Tour />
       <div
-        className={`background-main w-screen h-screen absolute z-20 ${
+        className={`background-main w-screen h-screen absolute z-20  duration-300
+        ${OpenSetting ? "scale-[2.13] " : ""}
+        ${
           Page == "project"
-            ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]"
+            ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
       ></div>
       <div
-        className={`background-second w-screen h-screen absolute z-20  ${
+        className={`background-second w-screen h-screen absolute z-20 duration-300
+        
+        ${OpenSetting ? "scale-[2.13] " : ""}
+        
+        ${
           Page == "project"
-            ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]"
+            ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
       ></div>
       <div
-        className={`background-third w-screen h-screen absolute z-20  ${
+        className={`background-third w-screen h-screen absolute z-20 duration-300
+        ${OpenSetting ? "scale-[2.13] " : ""}
+        ${
           Page == "project"
-            ? "rotate-[338deg] scale-[2.2] lg:scale-[1.7] top-[0svh]"
+            ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
       ></div>
@@ -86,14 +94,20 @@ export default function Home() {
       )}
 
       {Page == "home" && (
-        <div     className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
+        <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
           <AutoPlay />
         </div>
       )}
 
+      {/* {OpenSetting && (
+        <div className="h-[10rem]  w-screen z-50  absolute right-[-30vw] bottom-[60svh] lg:bottom-[5svh] ">
+          <AutoPlay />
+        </div>
+      )} */}
+
       {/* button */}
       <motion.div
-      id="step2"
+        id="step2"
         onClick={() => {
           setOpenSetting(!OpenSetting);
           setIsPlaying(true);
@@ -104,7 +118,7 @@ export default function Home() {
           opacity: !OpenSetting ? 1 : 0,
         }}
         transition={{
-          duration: 0.8,
+          duration: 0.3,
           type: "spring",
           stiffness: 200,
           damping: 20,
@@ -131,17 +145,13 @@ export default function Home() {
         variants={variants}
         className={` ${
           OpenSetting
-            ? "w-[53%] z-[50] h-[60%] mt-[-4rem] lg:mt-[10svh]"
-            : "w-[30%]  mt-[-4rem] lg:mt-[11svh]"
-        } h-screen absolute flex justify-center items-center left-0  `}
+            ? "w-[20%]   flex justify-start z-[50] h-screen "
+            : "w-[30%]   mt-[-4rem]  justify-center items-center"
+        } h-screen absolute flex  left-0   `}
       >
         {/* Content of your component */}
 
-        <div className="w-full h-full    z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
-          {/* <div className="bg-[#f0f0f08b] border-[2px] border-black  px-[2rem]     duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center">
-            <Clock />
-          </div> */}
-
+        <div className="w-full lg:w-[60%] h-full shadow-2xl border-r-[4px] overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
           <Link
             rel="noopener noreferrer"
             target="_blank"
@@ -151,7 +161,7 @@ export default function Home() {
             onClick={() => {
               setOpenSetting(!OpenSetting);
             }}
-            className="text-white bg-[#1e5065c7] border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="text-black bg-[#f3f3f3c7] border-[2px] border-white   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
           >
             Meet Us
           </Link>
@@ -160,7 +170,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("clients");
             }}
-            className="text-white bg-black border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="text-white bg-black border-[2px] border-[#ffffff69]  hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw] hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
           >
             Surprise !!
           </div>
@@ -169,7 +179,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("project");
             }}
-            className="text-white bg-black border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
           >
             Our Project
           </div>
@@ -179,7 +189,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("about");
             }}
-            className="text-white bg-black border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="text-white bg-black border-[2px] border-[#ffffff69]   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
           >
             About Us
           </div>
@@ -188,9 +198,8 @@ export default function Home() {
               onClick={() => {
                 setIsPlaying(true);
                 setisMute(false);
-                setOpenSetting(!OpenSetting);
               }}
-              className="text-white bg-black border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+              className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw] py-[0.8rem] uppercase rounded-md text-center"
             >
               Play Audio
             </div>
@@ -199,9 +208,8 @@ export default function Home() {
               onClick={() => {
                 setIsPlaying(false);
                 setisMute(true);
-                setOpenSetting(!OpenSetting);
               }}
-              className="text-white bg-black border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+              className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
             >
               Mute Audio
             </div>
@@ -211,7 +219,7 @@ export default function Home() {
               setOpenSetting(!OpenSetting);
               setPage("home");
             }}
-            className="text-white bg-black border-[2px] border-black  hover:bg-gradient-to-r from-black/10 to-slate-600/50 to-silver-500 hover:text-white px-[2rem] hover:w-[83svw]  hover:lg:w-[14rem]   duration-500 cursor-pointer w-[80svw] lg:w-[12rem]  py-[0.4rem] uppercase rounded-md text-center"
+            className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
           >
             Exit
           </div>
@@ -244,7 +252,7 @@ export default function Home() {
           </div>
           {!OpenSetting && (
             <Link
-            id="step1"
+              id="step1"
               rel="noopener noreferrer"
               target="_blank"
               href={

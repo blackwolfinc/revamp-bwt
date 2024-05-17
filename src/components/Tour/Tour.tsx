@@ -22,7 +22,7 @@ const Tour: React.FC = () => {
         ],
       });
       intro.start();
-    }, 4000); // 5 seconds delay
+    }, 4400); // 5 seconds delay
 
     return () => clearTimeout(timer);
 
