@@ -91,7 +91,7 @@ const Page = () => {
           </h1>
         </div>
       </div>
-      <App/>
+      {/* <App/> */}
     </div>
   );
 };
