@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import App from "./App";
 
 const usersData = [
   {
@@ -90,6 +91,7 @@ const Page = () => {
           </h1>
         </div>
       </div>
+      <App/>
     </div>
   );
 };

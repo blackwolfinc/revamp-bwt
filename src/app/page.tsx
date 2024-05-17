@@ -11,11 +11,11 @@ import Claw from "../../public/assets/img/claw.png";
 import wolf from "../../public/assets/img/wolf3.png";
 
 import Clients from "@/components/ClientSection/Clients";
-import Clock from "@/components/Clock/Clock";
 import GameList from "@/components/GameList/GameList";
+import Link from "next/link";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import Link from "next/link";
+import Tour from "@/components/Tour/Tour";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
@@ -46,6 +46,7 @@ export default function Home() {
   return (
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
+      <Tour/>
       <div
         className={`background-main w-screen h-screen absolute z-20 ${
           Page == "project"
@@ -85,13 +86,14 @@ export default function Home() {
       )}
 
       {Page == "home" && (
-        <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
+        <div     className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
           <AutoPlay />
         </div>
       )}
 
       {/* button */}
       <motion.div
+      id="step2"
         onClick={() => {
           setOpenSetting(!OpenSetting);
           setIsPlaying(true);
@@ -242,6 +244,7 @@ export default function Home() {
           </div>
           {!OpenSetting && (
             <Link
+            id="step1"
               rel="noopener noreferrer"
               target="_blank"
               href={

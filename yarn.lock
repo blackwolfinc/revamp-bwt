@@ -449,6 +449,11 @@
     "@tufjs/canonical-json" "2.0.0"
     minimatch "^9.0.3"
 
+"@types/intro.js@^5.1.5":
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/@types/intro.js/-/intro.js-5.1.5.tgz#163b3808c70392636d691e1e9cfac901bbfaf0e9"
+  integrity sha512-TT1d8ayz07svlBcoqh26sNpQaU6bBpdFcCC+IMZHp46NNX2mYAHAVefM3wCmQSd4UWhhObeMjFByw2IaPKOXlw==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -2033,6 +2038,11 @@ internal-slot@^1.0.7:
     hasown "^2.0.0"
     side-channel "^1.0.4"
 
+intro.js@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/intro.js/-/intro.js-7.2.0.tgz#e58e8fee4f6b43d6e0fcb264c9ca8a0f0565026d"
+  integrity sha512-qbMfaB70rOXVBceIWNYnYTpVTiZsvQh/MIkfdQbpA9di9VBfj1GigUPfcCv3aOfsbrtPcri8vTLTA4FcEDcHSQ==
+
 ip-address@^9.0.5:
   version "9.0.5"
   resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-9.0.5.tgz#117a960819b08780c3bd1f14ef3c1cc1d3f3ea5a"
@@ -3329,6 +3339,11 @@ react-icons@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.0.1.tgz#1694e11bfa2a2888cab47dcc30154ce90485feee"
   integrity sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==
+
+react-introjs@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-introjs/-/react-introjs-1.1.1.tgz#32fd90adbf3e80d0f15c06337555e291bf2449da"
+  integrity sha512-fLTpyKj1L1H3+V06qCwqZeCej9RKvUFH/AqoextvgLK4KvwtTE3k9R6q0Ze33qIlDzjMkovjShbdJ0HUf0d1zw==
 
 react-is@^16.13.1:
   version "16.13.1"
