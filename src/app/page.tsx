@@ -16,6 +16,9 @@ import Link from "next/link";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Tour from "@/components/Tour/Tour";
+import { FaGit, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
+import Social from "@/components/Social/Social";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
@@ -86,12 +89,12 @@ export default function Home() {
         </audio>
       )}
 
-      {isPlaying && Page == "clients" && !isMute && (
+      {/* {isPlaying && Page == "clients" && !isMute && (
         <audio autoPlay preload="auto" loop>
           <source src="/assets/mp4/backsongGame.mp4" type="audio/mp4" />
           Your browser does not support the audio tag.
         </audio>
-      )}
+      )} */}
 
       {Page == "home" && (
         <div className="h-[10rem] w-screen lg:w-[15rem] absolute left-[0] bottom-[60svh] lg:bottom-[5svh] ">
@@ -99,11 +102,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* {OpenSetting && (
-        <div className="h-[10rem]  w-screen z-50  absolute right-[-30vw] bottom-[60svh] lg:bottom-[5svh] ">
-          <AutoPlay />
-        </div>
-      )} */}
+  
 
       {/* button */}
       <motion.div
@@ -150,8 +149,16 @@ export default function Home() {
         } h-screen absolute flex  left-0   `}
       >
         {/* Content of your component */}
-
-        <div className="w-full lg:w-[60%] h-full shadow-2xl border-r-[4px] overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
+       {OpenSetting &&  <div className="w-full lg:w-[60%] h-full shadow-2xl border-r-[4px] overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
+          <div>
+          <Image
+              alt=""
+              height={300}
+              width={550}
+              src={wolf}
+              className={`z-20  hidden lg:flex `}
+            />
+          </div>
           <Link
             rel="noopener noreferrer"
             target="_blank"
@@ -223,7 +230,10 @@ export default function Home() {
           >
             Exit
           </div>
-        </div>
+
+      <Social/>
+        </div>}
+
       </motion.div>
       {/* logo */}
       {Page == "home" && (
@@ -268,6 +278,50 @@ export default function Home() {
           )}
         </div>
       )}
+
+      {OpenSetting && (
+        <div className="flex flex-col w-full h-full  relative  justify-center  mt-[2rem] items-center  z-30  scale-75">
+          <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center z-20 items-center dropLogo ">
+            <div
+              className={` absolute right-0 top-0 ${
+                OpenSetting ? "opacity-100" : "opacity-70"
+              }`}
+            >
+              <Image
+                alt=""
+                height={350}
+                width={450}
+                src={Claw}
+                className="mt-[-3rem] hidden lg:flex opacity-45 "
+              />
+            </div>
+            <Image
+              alt=""
+              height={300}
+              width={550}
+              src={wolf}
+              className={`z-20  ${OpenSetting ? "invert hidden lg:flex" : ""} `}
+            />
+          </div>
+          {!OpenSetting && (
+            <Link
+              id="step1"
+              rel="noopener noreferrer"
+              target="_blank"
+              href={
+                "https://calendly.com/inc-blackwolf/application-development-consulting"
+              }
+              className="absolute mb-[-12rem] hover:mb-[-11rem] px-[5rem] py-[1rem] hover:border-[2px] duration-300 -skew-x-[15deg] uppercase hover:scale-105 cursor-pointer !z-50 bg-gradient-to-r from-black/30 to-blue-500/50 to-silver-500 text-white"
+            >
+              <span className="font-semibold skew-x-[15deg]">
+                {" "}
+                create your website
+              </span>
+            </Link>
+          )}
+        </div>
+      )}
+
       {
         !OpenSetting && Page == "project" && <Clients />
 
