@@ -12,13 +12,11 @@ import wolf from "../../public/assets/img/wolf3.png";
 
 import Clients from "@/components/ClientSection/Clients";
 import GameList from "@/components/GameList/GameList";
+import Social from "@/components/Social/Social";
+import Tour from "@/components/Tour/Tour";
 import Link from "next/link";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import Tour from "@/components/Tour/Tour";
-import { FaGit, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { SiUpwork } from "react-icons/si";
-import Social from "@/components/Social/Social";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
@@ -104,8 +102,6 @@ export default function Home() {
         </div>
       )}
 
-  
-
       {/* button */}
       <motion.div
         id="step2"
@@ -151,94 +147,95 @@ export default function Home() {
         } h-screen absolute flex  left-0   `}
       >
         {/* Content of your component */}
-       {OpenSetting &&  <div className="w-full lg:w-[60%] h-full shadow-2xl border-r-[4px] overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[6rem]">
-          <div>
-          <Image
-              alt=""
-              height={300}
-              width={550}
-              src={wolf}
-              className={`z-20  hidden lg:flex `}
-            />
-          </div>
-          <Link
-            rel="noopener noreferrer"
-            target="_blank"
-            href={
-              "https://calendly.com/inc-blackwolf/application-development-consulting"
-            }
-            onClick={() => {
-              setOpenSetting(!OpenSetting);
-            }}
-            className="text-black bg-[#f3f3f3c7] border-[2px] border-white   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
-          >
-            Meet Us
-          </Link>
-          <div
-            onClick={() => {
-              setOpenSetting(!OpenSetting);
-              setPage("clients");
-            }}
-            className="text-white bg-black border-[2px] border-[#ffffff69]  hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw] hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
-          >
-            Surprise !!
-          </div>
-          <div
-            onClick={() => {
-              setOpenSetting(!OpenSetting);
-              setPage("project");
-            }}
-            className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
-          >
-            Our Project
-          </div>
-
-          <div
-            onClick={() => {
-              setOpenSetting(!OpenSetting);
-              setPage("about");
-            }}
-            className="text-white bg-black border-[2px] border-[#ffffff69]   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
-          >
-            About Us
-          </div>
-          {isMute ? (
+        {OpenSetting && (
+          <div className="w-full lg:w-[80%] h-full shadow-2xl border-r-[4px] overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[0rem]">
+            <div>
+              <Image
+                alt=""
+                height={300}
+                width={550}
+                src={wolf}
+                className={`z-20  hidden lg:flex `}
+              />
+            </div>
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              href={
+                "https://calendly.com/inc-blackwolf/application-development-consulting"
+              }
+              onClick={() => {
+                setOpenSetting(!OpenSetting);
+              }}
+              className="text-black bg-[#f3f3f3c7] border-[2px] border-white   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
+            >
+              Meet Us
+            </Link>
             <div
               onClick={() => {
-                setIsPlaying(true);
-                setisMute(false);
+                setOpenSetting(!OpenSetting);
+                setPage("clients");
               }}
-              className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw] py-[0.8rem] uppercase rounded-md text-center"
+              className="text-white bg-black border-[2px] border-[#ffffff69]  hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw] hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
             >
-              Play Audio
+              Surprise !!
             </div>
-          ) : (
             <div
               onClick={() => {
-                setIsPlaying(false);
-                setisMute(true);
+                setOpenSetting(!OpenSetting);
+                setPage("project");
               }}
-              className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
+              className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
             >
-              Mute Audio
+              Our Project
             </div>
-          )}
-          <div
-            onClick={() => {
-              setOpenSetting(!OpenSetting);
-              setPage("home");
-            }}
-            className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
-          >
-            Exit
+
+            <div
+              onClick={() => {
+                setOpenSetting(!OpenSetting);
+                setPage("about");
+              }}
+              className="text-white bg-black border-[2px] border-[#ffffff69]   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
+            >
+              About Us
+            </div>
+            {isMute ? (
+              <div
+                onClick={() => {
+                  setIsPlaying(true);
+                  setisMute(false);
+                }}
+                className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw] py-[0.8rem] uppercase rounded-md text-center"
+              >
+                Play Audio
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  setIsPlaying(false);
+                  setisMute(true);
+                }}
+                className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
+              >
+                Mute Audio
+              </div>
+            )}
+            <div
+              onClick={() => {
+                setOpenSetting(!OpenSetting);
+                setPage("home");
+              }}
+              className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
+            >
+              Exit
+            </div>
+
+            <Social />
           </div>
-
-      <Social/>
-        </div>}
-
+        )}
       </motion.div>
       {/* logo */}
-      {Page == "home" && (
+      {Page == "home" && !OpenSetting && (
         <div className="flex flex-col w-full h-full  relative  justify-center  mt-[2rem] items-center  z-30  scale-75">
           <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center z-20 items-center dropLogo ">
             <div
@@ -282,45 +279,53 @@ export default function Home() {
       )}
 
       {OpenSetting && (
-        <div className="flex flex-col w-full h-full  relative  justify-center  mt-[2rem] items-center  z-30  scale-75">
-          <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center z-20 items-center dropLogo ">
-            <div
-              className={` absolute right-0 top-0 ${
-                OpenSetting ? "opacity-100" : "opacity-70"
-              }`}
-            >
-              <Image
-                alt=""
-                height={350}
-                width={450}
-                src={Claw}
-                className="mt-[-3rem] hidden lg:flex opacity-45 "
-              />
+        <div className="flex flex-col w-full h-full  relative duration-300 ml-[15vw]   shadow-2xl bg-[#0a090f64]  justify-center scale-[0.9] rounded-xl items-center  z-30  ">
+          <div className="absolute top-[10%] left-[5%] w-[75%]">
+            <h1 className="text-[24px] ">Black Wolf Tech Indonesia</h1>
+            <div className="mt-[1rem]">
+              Welcome to Black Wolf Tech Indonesia, your trusted ally in
+              navigating the digital landscape. As a leading force in technology
+              solutions, we specialize in providing tailored answers to your
+              unique challenges, ensuring you stay at the forefront of
+              innovation.
             </div>
-            <Image
-              alt=""
-              height={300}
-              width={550}
-              src={wolf}
-              className={`z-20  ${OpenSetting ? "invert hidden lg:flex" : ""} `}
-            />
+
+            <h1 className="text-[24px] mt-[2rem]">
+              Why Black Wolf Tech Indonesia ?
+            </h1>
+            <div className="mt-[1rem]">
+              Innovative Solutions : We thrive on innovation, delivering
+              cutting-edge solutions that propel your business forward in a
+              rapidly evolving tech environment.
+              <br />
+              <br />
+              Customer-Centric Approach : Your success is our priority. We take
+              the time to understand your specific needs, crafting solutions
+              that align seamlessly with your goals.
+              <br />
+              <br />
+              Tech Prowess : With a team of skilled professionals, we bring a
+              wealth of technical expertise to the table, offering a diverse
+              range of services to meet your requirements.
+            </div>
+            <br />
+            <div>
+              Join hands with Black Wolf Tech Indonesia and let redefine the
+              future of technology together. Elevate your digital presence,
+              embrace innovation, and conquer the challenges of tomorrow.
+              Connect with us to embark on a journey of unparalleled
+              technological excellence.
+              <br />
+              <br />
+
+               #BlackWolfTechID #TechInnovation
+              #DigitalExcellence
+            </div>
           </div>
-          {!OpenSetting && (
-            <Link
-              id="step1"
-              rel="noopener noreferrer"
-              target="_blank"
-              href={
-                "https://calendly.com/inc-blackwolf/application-development-consulting"
-              }
-              className="absolute mb-[-12rem] hover:mb-[-11rem] px-[5rem] py-[1rem] hover:border-[2px] duration-300 -skew-x-[15deg] uppercase hover:scale-105 cursor-pointer !z-50 bg-gradient-to-r from-black/30 to-blue-500/50 to-silver-500 text-white"
-            >
-              <span className="font-semibold skew-x-[15deg]">
-                {" "}
-                create your website
-              </span>
-            </Link>
-          )}
+
+          <div className="ml-[-16vw] absolute bottom-[3vh] scale-[1.4]">
+            <AutoPlay />
+          </div>
         </div>
       )}
 
