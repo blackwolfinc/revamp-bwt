@@ -51,8 +51,10 @@ export default function Home() {
       <div
         className={`background-main w-screen h-screen absolute z-20  duration-300
         ${OpenSetting ? "scale-[2.13] " : ""}
+        ${Page == "clients" && !OpenSetting ? "scale-[2.3] rotate-45" : ""}
+
         ${
-          Page == "project"
+          Page == "project" && !OpenSetting 
             ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
@@ -61,18 +63,21 @@ export default function Home() {
         className={`background-second w-screen h-screen absolute z-20 duration-300
         
         ${OpenSetting ? "scale-[2.13] " : ""}
+        ${Page == "clients" && !OpenSetting ? "scale-[2.3] rotate-45" : ""}
         
         ${
-          Page == "project"
+          Page == "project" && !OpenSetting
             ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
       ></div>
       <div
         className={`background-third w-screen h-screen absolute z-20 duration-300
-        ${OpenSetting ? "scale-[2.13] " : ""}
+        ${OpenSetting  ? "scale-[2.13] " : ""}
+        ${Page == "clients" && !OpenSetting ? "scale-[2.3] rotate-45" : ""}
+        
         ${
-          Page == "project"
+          Page == "project" && !OpenSetting 
             ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
@@ -142,20 +147,20 @@ export default function Home() {
         variants={variants}
         className={` ${
           OpenSetting
-            ? "w-[20%]   flex justify-start z-[50] h-screen "
+            ? " w-full lg:w-[20%]   flex justify-start z-[50] h-screen "
             : "w-[30%]   mt-[-4rem]  justify-center items-center"
         } h-screen absolute flex  left-0   `}
       >
         {/* Content of your component */}
         {OpenSetting && (
-          <div className="w-full lg:w-[80%] h-full shadow-2xl border-r-[4px] overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[0rem]">
-            <div>
+          <div className="w-full overflow-scroll lg:w-[80%] h-full shadow-2xl border-r-[4px] lg:overflow-hidden  bg-gradient-to-br from-[#170a0a] via-[#181818d8] to-[#000000b5]  items-center   z-50 flex justify-center items-left  px-[2rem] flex-col space-y-4 lg:pt-[0rem]">
+            <div className=" scale-50 lg:scale-100 mb-[-5svh] lg:mb-0">
               <Image
                 alt=""
                 height={300}
                 width={550}
                 src={wolf}
-                className={`z-20  hidden lg:flex `}
+                className={`z-20 `}
               />
             </div>
             <Link
@@ -236,8 +241,8 @@ export default function Home() {
       </motion.div>
       {/* logo */}
       {Page == "home" && !OpenSetting && (
-        <div className="flex flex-col w-full h-full  relative  justify-center  mt-[2rem] items-center  z-30  scale-75">
-          <div className=" mt-[-4rem] lg:mt-[-10rem] flex justify-center   content-center self-center z-20 items-center dropLogo ">
+        <div className="flex flex-col w-full h-full  relative  justify-center  mt-[2rem] lg:mt-0 items-center  z-30  scale-75">
+          <div className="mt-[-19rem] lg:mt-[-1]20rem] flex justify-center   content-center self-center z-20 items-center dropLogo ">
             <div
               className={` absolute right-0 top-0 ${
                 OpenSetting ? "opacity-100" : "opacity-70"
@@ -267,7 +272,7 @@ export default function Home() {
               href={
                 "https://calendly.com/inc-blackwolf/application-development-consulting"
               }
-              className="absolute mb-[-12rem] hover:mb-[-11rem] px-[5rem] py-[1rem] hover:border-[2px] duration-300 -skew-x-[15deg] uppercase hover:scale-105 cursor-pointer !z-50 bg-gradient-to-r from-black/30 to-blue-500/50 to-silver-500 text-white"
+              className="absolut mt-[0rem] lg:mt-0 mb-[-12rem] hover:mb-[-11rem] px-[5rem] py-[1rem] hover:border-[2px] duration-300 -skew-x-[15deg] uppercase hover:scale-105 cursor-pointer !z-50 bg-gradient-to-r from-black/30 to-blue-500/50 to-silver-500 text-white"
             >
               <span className="font-semibold skew-x-[15deg]">
                 {" "}
@@ -279,7 +284,7 @@ export default function Home() {
       )}
 
       {OpenSetting && (
-        <div className="flex flex-col w-full h-full  relative duration-300 ml-[15vw]   shadow-2xl bg-[#0a090f64]  justify-center scale-[0.9] rounded-xl items-center  z-30  ">
+        <div className="hidden lg:flex flex-col w-full h-full  relative duration-300 ml-[15vw]   shadow-2xl bg-[#0a090f64]  justify-center scale-[0.9] rounded-xl items-center  z-30  ">
           <div className="absolute top-[10%] left-[5%] w-[75%]">
             <h1 className="text-[24px] ">Black Wolf Tech Indonesia</h1>
             <div className="mt-[1rem]">
@@ -317,9 +322,7 @@ export default function Home() {
               technological excellence.
               <br />
               <br />
-
-               #BlackWolfTechID #TechInnovation
-              #DigitalExcellence
+              #BlackWolfTechID #TechInnovation #DigitalExcellence
             </div>
           </div>
 

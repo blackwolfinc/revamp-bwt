@@ -12,7 +12,7 @@ const GameCard = ({ game }:any) => {
   return (
     <div className="container h-mx-auto z-50 !mt-[-17vh] ">
       <h1 className="text-3xl font-bold mb-4 px-[1rem] text-[20px]">Browser Games</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  overflow-y-auto max-h-[50vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 px-[1rem]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  overflow-y-auto  max-h-[50vh] lg:max-h-[65vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 px-[1rem]">
         {game.map((game:any) => (
           <motion.div
             key={game.id}
