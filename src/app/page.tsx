@@ -79,10 +79,12 @@ export default function Home() {
             : ""
         }`}
       ></div>
+
       <BackgroundAnimate Animate={OpenSetting} />
+
       {/* Audio component */}
 
-      {isPlaying && Page !== "clients" && !isMute && (
+      {isPlaying && !isMute && (
         <audio autoPlay preload="auto" loop>
           <source src="/assets/mp4/backsound.mp4" type="audio/mp4" />
           Your browser does not support the audio tag.
@@ -91,7 +93,7 @@ export default function Home() {
 
       {/* {isPlaying && Page == "clients" && !isMute && (
         <audio autoPlay preload="auto" loop>
-          <source src="/assets/mp4/backsongGame.mp4" type="audio/mp4" />
+          <source src="/assets/mp4/backsound.mp4" type="audio/mp4" />
           Your browser does not support the audio tag.
         </audio>
       )} */}
