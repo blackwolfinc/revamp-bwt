@@ -41,12 +41,11 @@ const TalkingImage: React.FC<{ currentWord: string }> = ({ currentWord }) => {
 
   return (
     <div className="flex justify-center mt-4 z-50 relative overflow-hidden mr-[-2rem]">
-      <Image
+      <img
         src={`/assets/img/talk/${mouthMovement}`}
         alt="Talking Mouth"
         height={130}
         width={130}
-        priority
         className="w-24 h-24 border-[4px] rounded-3xl" // Apply animation class
       />
     </div>
