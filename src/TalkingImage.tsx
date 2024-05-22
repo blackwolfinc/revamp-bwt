@@ -46,7 +46,6 @@ const TalkingImage: React.FC<{ currentWord: string }> = ({ currentWord }) => {
         alt="Talking Mouth"
         height={130}
         width={130}
-        quality={10}
         priority
         className="w-24 h-24 border-[4px] rounded-3xl" // Apply animation class
       />
