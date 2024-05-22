@@ -5,7 +5,7 @@ import { OpenAnimation } from "@/components/OpenAnimation/OpenAnimation";
 import AutoPlay from "@/components/Slider/AutoPlay";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdSettings } from "react-icons/io";
 import Claw from "../../public/assets/img/claw.png";
 import wolf from "../../public/assets/img/wolf3.png";
@@ -17,12 +17,15 @@ import Tour from "@/components/Tour/Tour";
 import Link from "next/link";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import TalkCharacter from "@/components/TalkCharacter/TalkCharacter";
 
 export default function Home() {
   const [OpenSetting, setOpenSetting] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMute, setisMute] = useState(false);
   const [Page, setPage] = useState("home");
+  const [TextData, setTextData]:any = useState(undefined);
+  const [volume, setVolume] = useState<number>(0.3); // Initial volume set to 50%
 
   const variants = {
     visible: {
@@ -44,6 +47,16 @@ export default function Home() {
       },
     },
   };
+
+
+  useEffect(() => {
+    return () => {
+      setTimeout(() => {
+        setTextData("Welcome to Black Wolf Tech Indonesia, your trusted ally in navigating the digital landscape. As a leading force in technology solutions, we specialize in providing tailored answers to your unique challenges, ensuring you stay at the forefront of innovation. ")
+      }, 7000);
+    };
+  }, []);
+
   return (
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
       <OpenAnimation />
@@ -54,17 +67,15 @@ export default function Home() {
         ${Page == "clients" && !OpenSetting ? "scale-[2.3] rotate-45" : ""}
 
         ${
-          Page == "project" && !OpenSetting 
+          Page == "project" && !OpenSetting
             ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
       ></div>
       <div
         className={`background-second w-screen h-screen absolute z-20 duration-300
-        
         ${OpenSetting ? "scale-[2.13] " : ""}
         ${Page == "clients" && !OpenSetting ? "scale-[2.3] rotate-45" : ""}
-        
         ${
           Page == "project" && !OpenSetting
             ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
@@ -73,11 +84,11 @@ export default function Home() {
       ></div>
       <div
         className={`background-third w-screen h-screen absolute z-20 duration-300
-        ${OpenSetting  ? "scale-[2.13] " : ""}
+        ${OpenSetting ? "scale-[2.13] " : ""}
         ${Page == "clients" && !OpenSetting ? "scale-[2.3] rotate-45" : ""}
         
         ${
-          Page == "project" && !OpenSetting 
+          Page == "project" && !OpenSetting
             ? " scale-[2.2] rotate-[-30deg] lg:scale-[2.3] top-[0svh]"
             : ""
         }`}
@@ -88,7 +99,7 @@ export default function Home() {
       {/* Audio component */}
 
       {isPlaying && !isMute && (
-        <audio autoPlay preload="auto" loop>
+        <audio autoPlay preload="auto"  loop>
           <source src="/assets/mp4/backsound.mp4" type="audio/mp4" />
           Your browser does not support the audio tag.
         </audio>
@@ -113,6 +124,7 @@ export default function Home() {
         onClick={() => {
           setOpenSetting(!OpenSetting);
           setIsPlaying(true);
+          setTextData("Setting");
         }}
         initial={false}
         animate={{
@@ -171,6 +183,7 @@ export default function Home() {
               }
               onClick={() => {
                 setOpenSetting(!OpenSetting);
+                setTextData("Meet Us");
               }}
               className="text-black bg-[#f3f3f3c7] border-[2px] border-white   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
             >
@@ -180,6 +193,7 @@ export default function Home() {
               onClick={() => {
                 setOpenSetting(!OpenSetting);
                 setPage("clients");
+                setTextData("Surprise !!");
               }}
               className="text-white bg-black border-[2px] border-[#ffffff69]  hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw] hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
             >
@@ -189,6 +203,7 @@ export default function Home() {
               onClick={() => {
                 setOpenSetting(!OpenSetting);
                 setPage("project");
+                setTextData("Our Project");
               }}
               className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]   py-[0.8rem] uppercase rounded-md text-center"
             >
@@ -199,6 +214,7 @@ export default function Home() {
               onClick={() => {
                 setOpenSetting(!OpenSetting);
                 setPage("about");
+                setTextData("About Us");
               }}
               className="text-white bg-black border-[2px] border-[#ffffff69]   hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]   duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
             >
@@ -209,6 +225,7 @@ export default function Home() {
                 onClick={() => {
                   setIsPlaying(true);
                   setisMute(false);
+                  setTextData("Play Audio");
                 }}
                 className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw] py-[0.8rem] uppercase rounded-md text-center"
               >
@@ -219,6 +236,7 @@ export default function Home() {
                 onClick={() => {
                   setIsPlaying(false);
                   setisMute(true);
+                  setTextData("Mute Audio");
                 }}
                 className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]    duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
               >
@@ -229,6 +247,7 @@ export default function Home() {
               onClick={() => {
                 setOpenSetting(!OpenSetting);
                 setPage("home");
+                setTextData("Exit");
               }}
               className="text-white bg-black border-[2px] border-[#ffffff69]    hover:bg-[#ffffff69] hover:text-white px-[2rem] hover:w-[83svw]  hover:py-[2rem]     duration-300 cursor-pointer w-[80svw]  py-[0.8rem] uppercase rounded-md text-center"
             >
@@ -269,6 +288,11 @@ export default function Home() {
               id="step1"
               rel="noopener noreferrer"
               target="_blank"
+              onClick={() => {
+                setTextData(
+                  "if you will create a website , dont worry , we will do the best for you "
+                );
+              }}
               href={
                 "https://calendly.com/inc-blackwolf/application-development-consulting"
               }
@@ -331,6 +355,10 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <div className="absolute z-50 top-0 right-0">
+        <TalkCharacter text={TextData} />
+      </div>
 
       {
         !OpenSetting && Page == "project" && <Clients />

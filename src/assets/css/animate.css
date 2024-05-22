@@ -333,3 +333,40 @@ a {
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
 }
+
+
+.talking-image {
+  display: flex;
+  justify-center: center;
+  margin-top: 1rem;
+}
+
+.mouth {
+  transform-origin: center;
+  animation: talk 0.5s infinite;
+}
+
+@keyframes talk {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.3);
+  }
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate {
+  animation: fadeIn  0.1s ease-in-out;
+}
