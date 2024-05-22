@@ -3,7 +3,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['img.gamemonetize.com'],
+      domains: ['img.gamemonetize.com', 'img.blackwolftech.id' , 'www.blackwolftech.id' , 'https://www.blackwolftech.id/'],
     },
   };
   
