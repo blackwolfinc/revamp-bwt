@@ -25,7 +25,7 @@ const TalkCharacter = (props:any) => {
         messages: [
           { role: "system", content: [{ type: "text", text: content }] as any },
         ],
-        temperature: 2,
+        temperature: 1,
         max_tokens: 30,
         top_p: 1,
         frequency_penalty: 0,
