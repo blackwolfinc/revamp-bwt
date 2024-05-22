@@ -26,6 +26,7 @@ const Clients: React.FC = () => {
           {images.map((image, index) => (
             <div key={index} className="!flex items-center justify-center">
               <Image
+              unoptimized
                 alt=""
                 height={200}
                 width={700}

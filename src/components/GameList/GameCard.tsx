@@ -13,7 +13,7 @@ const GameCard = ({ game }:any) => {
     <div className="relative w-[300px] rounded-lg overflow-hidden shadow-md cursor-pointer transition duration-300 transform hover:scale-105" onClick={() => handleCardClick(game.url)}>
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black to-transparent opacity-70 rounded-lg"></div>
       <motion.div className="relative w-full h-48 sm:h-56">
-        <Image src={game.thumb} alt={game.title} layout="fill" objectFit="cover" priority className="rounded-xl" quality={10} />
+        <Image unoptimized src={game.thumb} alt={game.title} layout="fill" objectFit="cover" priority className="rounded-xl" quality={10} />
       </motion.div>
       <div className="p-4 absolute inset-0 flex flex-col justify-center items-center text-white z-20">
         <h5 className="font-bold text-lg mb-2">{game.title}</h5>
