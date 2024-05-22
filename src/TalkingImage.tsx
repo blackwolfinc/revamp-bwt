@@ -30,7 +30,7 @@ import yImage from "/public/assets/img/talk/y.webp";
 import zImage from "/public/assets/img/talk/z.webp";
 
 // Define the mapping
-const wordToImageMapping: Record<string, string> = {
+const wordToImageMapping: any = {
   a: aImage,
   b: bImage,
   c: cImage,
@@ -77,7 +77,7 @@ const TalkingImage: React.FC<{ currentWord: string }> = ({ currentWord }) => {
       {Object.entries(wordToImageMapping).map(([word, imageSrc]) => (
         <Image
           key={word}
-          src={imageSrc}
+          src={imageSrc as any}
           alt="Talking Mouth"
           height={130}
           width={130}
