@@ -1,3 +1,5 @@
+
+"use client"
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -50,7 +52,7 @@ const TalkingImage: React.FC<{ currentWord: string }> = ({ currentWord }) => {
         return (
           <Image
             key={imageSrc}
-            src={`/assets/img/talk/${imageSrc}`}
+            src={`/public/assets/img/talk/${imageSrc}`}
             alt="Talking Mouth"
             height={130}
             width={130}
