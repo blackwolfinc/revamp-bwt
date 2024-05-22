@@ -39,10 +39,7 @@ const TalkCharacter = (props:any) => {
             const char2 = text[event.charIndex + 1]?.toLowerCase();
             setCurrentWord(char2);
           }, 20);
-          setTimeout(() => {
-            const char2 = text[event.charIndex + 2]?.toLowerCase();
-            setCurrentWord(char2);
-          }, 30);
+   
           setTimeout(() => {
             const char2 =
               text[
@@ -50,6 +47,7 @@ const TalkCharacter = (props:any) => {
               ]?.toLowerCase();
             setCurrentWord(char2);
           }, 40);
+          
           setTimeout(() => {
             const char2 =
               text[
@@ -70,11 +68,7 @@ const TalkCharacter = (props:any) => {
             setCurrentWord(char2);
           }, 80);
 
-          setTimeout(() => {
-            const char2 = text[event.charIndex - 2]?.toLowerCase();
-            setCurrentWord(char2);
-          }, 90);
-
+      
           setTimeout(() => {
             const char2 =
               text[event.charIndex + (event.charLength - 1)]?.toLowerCase();
