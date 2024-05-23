@@ -26,6 +26,8 @@ export default function Home() {
   const [Page, setPage] = useState("home");
   const [TextData, setTextData]:any = useState(undefined);
   const [volume, setVolume] = useState<number>(0.3); // Initial volume set to 50%
+  const [Frist, setFrist] = useState(false)
+
 
   const variants = {
     visible: {
@@ -47,15 +49,16 @@ export default function Home() {
       },
     },
   };
-
-
   useEffect(() => {
-    return () => {
-      setTimeout(() => {
-        setTextData("Welcome to Black Wolf Tech Indonesia, your trusted ally in navigating the digital landscape. As a leading force in technology solutions, we specialize in providing tailored answers to your unique challenges, ensuring you stay at the forefront of innovation. ")
-      }, 7000);
-    };
+    const timer = setTimeout(() => {
+      setTextData("Welcome to Black Wolf Tech Indonesia, your trusted ally in navigating the digital landscape. As a leading force in technology solutions, we specialize in providing tailored answers to your unique challenges, ensuring you stay at the forefront of innovation. ")
+
+    }, 7000); // 5 seconds delay
+
+    return () => clearTimeout(timer);
+
   }, []);
+
 
   return (
     <div className=" w-screen h-screen relative bg-gradient-to-br from-[#00000050] via-[#363a5399] to-[#5c40407c] overflow-hidden">
@@ -124,7 +127,12 @@ export default function Home() {
         onClick={() => {
           setOpenSetting(!OpenSetting);
           setIsPlaying(true);
-          setTextData("Setting");
+          if (!Frist) {
+            setTextData("Hover My image if you want to ask something !");
+            setFrist(true)
+          } else {
+            setTextData("Setting");
+          }
         }}
         initial={false}
         animate={{
