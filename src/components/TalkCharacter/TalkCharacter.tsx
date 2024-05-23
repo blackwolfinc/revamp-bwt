@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import OpenAI from "openai";
 import TalkingImage from "@/TalkingImage";
 
-const TalkCharacter = (props: any) => {
-  const [messages, setMessages]: any = useState([]);
+const TalkCharacter = (props:any) => {
+  const [messages, setMessages]:any = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [currentWord, setCurrentWord] = useState("default");
@@ -12,15 +12,13 @@ const TalkCharacter = (props: any) => {
   const [selectedVoice, setSelectedVoice] = useState(null);
   const [voices, setVoices] = useState([]);
 
-  const [Hover, setHover] = useState(false);
-  const [FristTalk, setFristTalk] = useState(false);
 
   const openai = new OpenAI({
     dangerouslyAllowBrowser: true,
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   });
 
-  const sendMessage = async (content: any) => {
+  const sendMessage = async (content:any) => {
     try {
       const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -47,7 +45,7 @@ const TalkCharacter = (props: any) => {
 
     const userMessage = { role: "user", content: trimmedMessage };
     const botMessage = await sendMessage(trimmedMessage);
-    setMessages("");
+    setMessages("")
     setMessages([
       ...messages,
       userMessage,
@@ -57,7 +55,7 @@ const TalkCharacter = (props: any) => {
     setInputMessage("");
   };
 
-  const speak = (text: any) => {
+  const speak = (text:any) => {
     setIsSpeaking(true);
     if ("speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(text);
@@ -66,6 +64,7 @@ const TalkCharacter = (props: any) => {
       if (selectedVoice) {
         utterance.voice = selectedVoice;
       }
+    
 
       utterance.onstart = () => {
         setIsSpeaking(true);
@@ -75,8 +74,9 @@ const TalkCharacter = (props: any) => {
       utterance.onend = () => {
         setIsSpeaking(false);
         setCurrentWord("default"); // Set currentWord to "default" when audio playback is finished
-        setMessages("");
-      };
+        setMessages("")
+      }
+
 
       utterance.onboundary = (event) => {
         if (event.name === "word" || event.name === "sentence") {
@@ -86,10 +86,7 @@ const TalkCharacter = (props: any) => {
             const char2 = text[event.charIndex + 1]?.toLowerCase();
             setCurrentWord(char2);
           }, 20);
-          setTimeout(() => {
-            const char2 = text[event.charIndex + 2]?.toLowerCase();
-            setCurrentWord(char2);
-          }, 30);
+      
           setTimeout(() => {
             const char2 =
               text[
@@ -117,10 +114,6 @@ const TalkCharacter = (props: any) => {
             setCurrentWord(char2);
           }, 80);
 
-          setTimeout(() => {
-            const char2 = text[event.charIndex - 2]?.toLowerCase();
-            setCurrentWord(char2);
-          }, 90);
 
           setTimeout(() => {
             const char2 =
@@ -135,15 +128,16 @@ const TalkCharacter = (props: any) => {
       console.log("Text-to-Speech not supported");
       setIsSpeaking(false);
     }
+   
   };
 
   useEffect(() => {
     const loadVoices = () => {
       const synth = window.speechSynthesis;
-      const availableVoices: any = synth.getVoices();
+      const availableVoices:any = synth.getVoices();
       setVoices(availableVoices);
       const aaronVoice = availableVoices.find(
-        (voice: any) => voice.name === "Aaron" && voice.lang === "en-US"
+        (voice:any) => voice.name === "Aaron" && voice.lang === "en-US"
       );
       if (aaronVoice) {
         setSelectedVoice(aaronVoice);
@@ -162,9 +156,10 @@ const TalkCharacter = (props: any) => {
     }
   }, [props.text]); // Ru
 
-  const handleChangeInput = (e: any) => setInputMessage(e.target.value);
 
-  const handleKeyDown = (e: any) => {
+  const handleChangeInput = (e:any) => setInputMessage(e.target.value);
+
+  const handleKeyDown = (e:any) => {
     if (e.key === "Enter") handleSendMessage();
   };
 
@@ -174,9 +169,10 @@ const TalkCharacter = (props: any) => {
 
   return (
     <div className="p-4 relative flex items-center justify-center">
-      {isSpeaking && messages[0] && (
-        <div className="flex bg-black w-[30vw] p-[1rem] text-left flex-col">
-          {messages?.map((message: any, index: any) => (
+     
+        {isSpeaking && messages[0] &&
+         <div className="flex bg-black w-[30vw] p-[1rem] text-left flex-col">
+        {  messages?.map((message:any, index:any) => (
             <div
               key={index}
               style={{ textAlign: message.role === "user" ? "right" : "left" }}
@@ -184,47 +180,24 @@ const TalkCharacter = (props: any) => {
               {message.role !== "user" ? message.content : ""}
             </div>
           ))}
-        </div>
-      )}
-      <div>
-        <div
-          onMouseLeave={() => {
-            setHover(false);
-            speak("At your service ,Thanks Captain")
-
-          }}
-          className="flex items-center space-x-2 z-50"
-        >
-          <div
-            onMouseEnter={() => {
-              setHover(true);
-              speak("Hello Captain,  How can I assist you today?")
-              if (!FristTalk) {
-                setFristTalk(true);
-              }
-            }}
-          >
-            <TalkingImage currentWord={currentWord} />
           </div>
+          }
+     
+      <div>
+        <div className="flex items-center space-x-2">
+          <TalkingImage currentWord={currentWord} />
 
-          {Hover && (
-            <div className="flex flex-col space-y-2">
-              <input
-                type="text"
-                placeholder="Any question ?"
-                value={inputMessage}
-                onChange={handleChangeInput}
-                onKeyDown={handleKeyDown}
-                className="text-black px-[1rem] p-[0.5rem]"
-              />
-              <button
-                className="px-[2rem] py-[0.5rem] bg-slate-500"
-                onClick={handleSendMessage}
-              >
-                Ask
-              </button>
-            </div>
-          )}
+         <div className="flex flex-col space-y-2">
+         <input
+            type="text"
+            placeholder="Any question ?"
+            value={inputMessage}
+            onChange={handleChangeInput}
+            onKeyDown={handleKeyDown}
+            className="text-black px-[1rem] p-[0.5rem]"
+          />
+          <button className="px-[2rem] py-[0.5rem] bg-slate-500" onClick={handleSendMessage}>Ask</button>
+         </div>
         </div>
       </div>
     </div>
