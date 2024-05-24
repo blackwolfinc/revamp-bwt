@@ -13,11 +13,11 @@ const Whisper = () => {
     const startRecording = () => setIsRecording(true);
     const stopRecording = () => setIsRecording(false);
   
-    const onData = (recordedBlob) => {
+    const onData = (recordedBlo:any) => {
       // This will be called while recording is in progress
     };
   
-    const onStop = async (recordedBlob) => {
+    const onStop = async (recordedBlob:any) => {
       setTranscription('');
       setTranslation('');
       setError('');

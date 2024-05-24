@@ -12,7 +12,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // Use environment variable for API key
 });
 
-const parseForm = (req) => {
+const parseForm = (req:any) => {
   return new Promise((resolve, reject) => {
     const form = new IncomingForm();
     form.parse(req, (err, fields, files) => {
@@ -22,13 +22,13 @@ const parseForm = (req) => {
   });
 };
 
-export default async function handler(req, res) {
+export default async function handler(req:any, res:any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { fields, files } = await parseForm(req);
+    const { fields, files }:any = await parseForm(req);
     const { targetLanguage } = fields;
     const { audioData } = files;
 
