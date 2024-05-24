@@ -48,9 +48,9 @@ const TalkingImage: React.FC<{ currentWord: string }> = ({ currentWord }) => {
         width={130}
         quality={10}
         priority
-        className="w-24 h-24 border-[4px] rounded-3xl" // Apply animation class
+        unoptimized
+        className="w-24 h-24 border-[4px] rounded-3xl " // Apply animation class
       />
-      
     </div>
   );
 };
