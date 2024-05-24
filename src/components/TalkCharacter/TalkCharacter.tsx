@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import OpenAI from "openai";
 import TalkingImage from "@/TalkingImage";
+import html2canvas from "html2canvas";
+import { FaCamera } from "react-icons/fa";
 
 const TalkCharacter = (props: any) => {
   const [messages, setMessages]: any = useState([]);
@@ -15,39 +17,51 @@ const TalkCharacter = (props: any) => {
   const [isCamera, setisCamera] = useState(false);
 
   // camera
-  const [stream, setStream]: any = useState(null);
-  const [filter, setFilter] = useState("none");
-  const videoRef: any = useRef();
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  const [filter, setFilter] = useState<string>('none');
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const startCamera = async () => {
-    setisCamera(true);
+    setisCamera(true)
     try {
-      const mediaStream: any = await navigator.mediaDevices.getUserMedia({
-        video: true,
-      });
+      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
       setStream(mediaStream);
       if (videoRef.current) {
         videoRef.current.srcObject = mediaStream;
       }
     } catch (error) {
-      console.error("Error accessing camera:", error);
+      console.error('Error accessing camera:', error);
     }
   };
 
   const stopCamera = () => {
-    setisCamera(false);
+    setisCamera(false)
     if (stream) {
-      stream.getTracks().forEach((track: any) => track.stop());
+      stream.getTracks().forEach(track => track.stop());
       setStream(null);
     }
   };
 
-  const handleFilterChange = (event: any) => {
+  const takeSnapshot = () => {
+    html2canvas(document.body).then(canvas => {
+      const image = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = image;
+      link.download = 'snapshot.png';
+      link.click();
+    }).catch(error => {
+      console.error('Error taking snapshot:', error);
+    });
+  };
+
+  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(event.target.value);
     if (videoRef.current) {
       videoRef.current.style.filter = event.target.value;
     }
   };
+
+  
 
   const openai = new OpenAI({
     dangerouslyAllowBrowser: true,
@@ -226,33 +240,28 @@ const TalkCharacter = (props: any) => {
           {!isCamera ? (
             <TalkingImage currentWord={currentWord} />
           ) : (
-            <div className="w-[140px] h-[140px]  border-[4px] rounded-3xl   relative">
-              <video
-                ref={videoRef}
-                autoPlay
-                playsInline
-                className="w-[140px] h-[100px] rounded-3xl"
-                style={{ filter: filter }}
-              />
-              <div className="absolute bottom-[-0.3rem] right-0 m-4">
-                <select
-                  value={filter}
-                  onChange={handleFilterChange}
-                  className="bg-white border w-full text-black rounded px-2 py-1"
-                >
-                  <option value="none">None</option>
-                  <option value="grayscale(100%)">Grayscale</option>
-                  <option value="sepia(100%)">Sepia</option>
-                  <option value="invert(100%)">Invert</option>
-                  <option value="hue-rotate(90deg)">Hue Rotate</option>
-                  <option value="saturate(200%)">Saturate</option>
-                  <option value="contrast(200%)">Contrast</option>
-                  <option value="brightness(150%)">Brightness</option>
-                  <option value="blur(5px)">Blur</option>
-                  {/* Add more filter options as needed */}
-                </select>
-              </div>
+            <div className="w-[190px] md:max-w-md border rounded-2xl items-center flex justify-center relative group">
+            <video ref={videoRef} autoPlay playsInline className="w-full rounded-2xl" style={{ filter: filter }} />
+            <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <button onClick={takeSnapshot} className="text-white text-3xl">
+                <FaCamera />
+              </button>
             </div>
+            <div className="absolute  bottom-[-2rem] m-4">
+              <select value={filter} onChange={handleFilterChange} className="bg-white text-black border rounded px-2 py-1">
+                <option value="none">None</option>
+                <option value="grayscale(100%)">Grayscale</option>
+                <option value="sepia(100%)">Sepia</option>
+                <option value="invert(100%)">Invert</option>
+                <option value="hue-rotate(90deg)">Hue Rotate</option>
+                <option value="saturate(200%)">Saturate</option>
+                <option value="contrast(200%)">Contrast</option>
+                <option value="brightness(150%)">Brightness</option>
+                <option value="blur(5px)">Blur</option>
+                {/* Add more filter options as needed */}
+              </select>
+            </div>
+          </div>
           )}
 
           <div className="flex flex-col space-y-2">
@@ -275,7 +284,7 @@ const TalkCharacter = (props: any) => {
                         : "bg-blue-500 hover:bg-blue-700"
                     }`}
                   >
-                    {stream ? " Camera" : " Camera"}
+                    {stream ? " stop" : " Camera"}
                   </button>
                   <button
                     className="px-[2rem] w-full py-[0.5rem] bg-slate-500"
