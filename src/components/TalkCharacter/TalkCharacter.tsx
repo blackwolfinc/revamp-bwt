@@ -11,6 +11,7 @@ const TalkCharacter = (props:any) => {
   const [rate, setRate] = useState(0.7);
   const [selectedVoice, setSelectedVoice] = useState(null);
   const [voices, setVoices] = useState([]);
+  const [isOpen, setisOpen] = useState(false)
 
 
   const openai = new OpenAI({
@@ -169,9 +170,7 @@ const TalkCharacter = (props:any) => {
 
   return (
     <div className="p-4 relative flex items-center justify-center">
-     
-        {isSpeaking && messages[0] &&
-         <div className="flex bg-black w-[30vw] p-[1rem] text-left flex-col">
+       {isSpeaking && messages[0] &&     <div className="flex bg-black w-[30vw] p-[1rem] text-left flex-col  border-[2px] rounded-l-xl mr-[-1rem] shadow-2xl border-[#154031]">
         {  messages?.map((message:any, index:any) => (
             <div
               key={index}
@@ -180,15 +179,15 @@ const TalkCharacter = (props:any) => {
               {message.role !== "user" ? message.content : ""}
             </div>
           ))}
-          </div>
-          }
-     
-      <div>
-        <div className="flex items-center space-x-2">
-          <TalkingImage currentWord={currentWord} />
+          </div>}
 
+         
+      <div>
+        <div className="flex items-center space-x-2 justify-center" onMouseLeave={()=>{setisOpen(false)}} onMouseEnter={()=>{setisOpen(true)}}>
+          <TalkingImage currentWord={currentWord} />
          <div className="flex flex-col space-y-2">
-         <input
+         {isOpen && <div className="flex flex-col space-y-2 items-center">
+          <input
             type="text"
             placeholder="Any question ?"
             value={inputMessage}
@@ -196,7 +195,9 @@ const TalkCharacter = (props:any) => {
             onKeyDown={handleKeyDown}
             className="text-black px-[1rem] p-[0.5rem]"
           />
-          <button className="px-[2rem] py-[0.5rem] bg-slate-500" onClick={handleSendMessage}>Ask</button>
+          <button className="px-[2rem] w-full py-[0.5rem] bg-slate-500" onClick={handleSendMessage}>Ask</button>
+         </div> }
+        
          </div>
         </div>
       </div>
